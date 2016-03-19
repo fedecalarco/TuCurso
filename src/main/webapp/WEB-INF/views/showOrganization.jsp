@@ -15,8 +15,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Cursos</h1>
-    <td/>
+        <h1>${organization.getName()}</h1>
+
+        
         <table class="table table-hover" border="0">
             <tr>
                 <th>Nombre</th>
@@ -28,7 +29,7 @@
                 <th>Fecha inicio</th>
                 <th>Lugar</th>
             </tr>
-            <c:forEach items="${listCourses}" var="p">
+            <c:forEach items="${lstCourses}" var="p">
                 <tr>
                     <td>${p.getName()}</td>
                     <td>${p.getCategory().getName()}</td>
@@ -46,8 +47,10 @@
 
 
         </table>
-
+        
+        
         <a href="${pageContext.request.contextPath}/">Index</a>
 
+        
     </body>
 </html>

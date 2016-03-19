@@ -9,6 +9,7 @@ import com.company.tucurso.entity.Category;
 import com.company.tucurso.entity.Course;
 import com.company.tucurso.entity.Organization;
 import com.company.tucurso.service.CourseService;
+import com.company.tucurso.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,9 +27,14 @@ public class CourseController {
     @Autowired(required = true)
     CourseService courseService;
     
+    @Autowired(required = true)
+    OrganizationService organizationService;
+    
     @RequestMapping(value = "/addCourse", method = RequestMethod.POST)
     public String AddCourse(){
-        Organization comIT = new Organization("ComunidadIT");
+     //   Organization comIT = new Organization("ComunidadIT");
+        
+        Organization comIT = organizationService.get(Long.valueOf(1));
         Category programacion = new Category("Programacion");
         Course javaInicial = new Course("Java inicial", programacion, comIT, "Curso de java para no programadores", 200, "200hs", "20/05", "La Plata");
         
@@ -39,9 +45,9 @@ public class CourseController {
         return "index";
     }
     
-    @RequestMapping(value="/showCourses",method = RequestMethod.POST)
+    @RequestMapping(value="/showCourses")
     public String ShowCourses(Model m){
-        m.addAttribute("p", courseService.getAll());
+        m.addAttribute("listCourses", courseService.getAll());
         return "showCourses";
     }
 }

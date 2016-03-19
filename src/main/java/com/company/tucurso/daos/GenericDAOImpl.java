@@ -42,7 +42,6 @@ public abstract class GenericDAOImpl<E, K extends Serializable>
 
     @Override
     public void add(E entity) {
-        System.out.print("HOLAAAAAAAAAAAAAA");
         currentSession().save(entity);
     }
 

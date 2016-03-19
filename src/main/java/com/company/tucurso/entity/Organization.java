@@ -6,10 +6,15 @@
 package com.company.tucurso.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,6 +27,8 @@ public class Organization implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long organization_ID;
     private String name;
+//    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//    private List<Course> courses = new ArrayList<Course>();
 
     public Organization() {
     }
@@ -46,6 +53,17 @@ public class Organization implements Serializable {
         this.name = name;
     }
 
+//    public List<Course> getCourses() {
+//        return courses;
+//    }
+//
+//    public void setCourses(List<Course> courses) {
+//        this.courses = courses;
+//    }
+//
+//    public void addCourse(Course course){
+//        this.courses.add(course);
+//    }
 
 
 }
