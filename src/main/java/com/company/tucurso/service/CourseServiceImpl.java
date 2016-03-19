@@ -5,9 +5,9 @@
  */
 package com.company.tucurso.service;
 
+import com.company.tucurso.daos.CourseDao;
 import com.company.tucurso.daos.GenericDAO;
-import com.company.tucurso.daos.UserDao;
-import com.company.tucurso.entity.User;
+import com.company.tucurso.entity.Course;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,19 +15,19 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author fede
+ * @author fedec
  */
 @Service
 @Transactional
-public class UserServiceImpl extends GenericServiceImpl<User, Long> implements UserService {
+public class CourseServiceImpl extends GenericServiceImpl<Course, Long> implements CourseService {
 
-private UserDao userDao;
-public UserServiceImpl(){  
+private CourseDao courseDao;
+public CourseServiceImpl(){  
 }
 @Autowired
-public UserServiceImpl(@Qualifier("userDaoImpl")GenericDAO<User, Long> genericDao){
+public CourseServiceImpl(@Qualifier("courseDaoImpl")GenericDAO<Course, Long> genericDao){
     super(genericDao);
-    this.userDao = (UserDao) genericDao;
+    this.courseDao = (CourseDao) genericDao;
 }
 
 }

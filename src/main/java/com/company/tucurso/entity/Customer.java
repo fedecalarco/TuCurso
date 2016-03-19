@@ -1,11 +1,18 @@
 package com.company.tucurso.entity;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author fede
  */
-public abstract class Customer extends Account{
-    
+@Entity
+public abstract class Customer extends Account {
+
     private String county;
     private String province;
     private String city;
@@ -20,16 +27,13 @@ public abstract class Customer extends Account{
 //        this.city = city;
 //        this.phone = phone;
 //    }
-    
-        public Customer(String county, String province, String city, String phone, String user, String password, String email) {
+    public Customer(String county, String province, String city, String phone, String user, String password, String email) {
         super(user, password, email);
         this.county = county;
         this.province = province;
         this.city = city;
         this.phone = phone;
     }
-    
-    
 
     public String getCounty() {
         return county;
@@ -62,8 +66,5 @@ public abstract class Customer extends Account{
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
-    
-    
-    
+
 }

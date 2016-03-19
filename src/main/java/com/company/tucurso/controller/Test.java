@@ -19,5 +19,8 @@ public class Test {
         User user = new User("Federico", "Calarco", "Argentina", "Chubut", "Puerto Madryn", "2804722352", "fedecalarco", "123123", "fede.calarco@hotmail.com");
 
         // user = new Provider("ComunidadIT", "Cursos de java - .net", "Argentina", "Buenos Aires", "La Plata", "221235265", "ComunidadIT", "123123", "comunidadit@comit.com");
+    
+        UserController uc = new UserController();
+     //   uc.registerUser(user);
     }
 }

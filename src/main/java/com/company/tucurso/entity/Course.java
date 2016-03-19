@@ -5,18 +5,29 @@
  */
 package com.company.tucurso.entity;
 
-
+import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author fedec
  */
-public class Course {
-    
+@Entity
+public class Course implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long couse_ID;
     private String name;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Category category;
-    private Provider provider;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Organization organization;
     private String description;
     private double price;
     private String duration;
@@ -26,16 +37,18 @@ public class Course {
     public Course() {
     }
 
-    public Course(String name, Category category, Provider provider, String description, double price, String duration, String date, String location) {
+    public Course(String name, Category category, Organization organization, String description, double price, String duration, String date, String location) {
         this.name = name;
         this.category = category;
-        this.provider = provider;
+        this.organization = organization;
         this.description = description;
         this.price = price;
         this.duration = duration;
         this.date = date;
         this.location = location;
     }
+
+
 
     public long getCouse_ID() {
         return couse_ID;
@@ -44,7 +57,6 @@ public class Course {
 //    public void setCouse_ID(long couse_ID) {
 //        this.couse_ID = couse_ID;
 //    }
-
     public String getName() {
         return name;
     }
@@ -59,14 +71,6 @@ public class Course {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
     }
 
     public String getDescription() {
@@ -108,8 +112,14 @@ public class Course {
     public void setLocation(String location) {
         this.location = location;
     }
-    
-    
-    
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
     
 }

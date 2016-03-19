@@ -9,23 +9,29 @@ import com.company.tucurso.entity.User;
 import com.company.tucurso.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
  * @author fede
  */
-
 @Controller
+@RequestMapping(value = "/user")
 public class UserController {
 
-    
     @Autowired(required = true)
     UserService userService;
-    
-    public void registerUser(User u){
-        userService.add(u);
-    }
-    
 
+    @RequestMapping(value = "/registrar", method = RequestMethod.POST)
+    public String registerUser() {
+
+        User u = new User("Federico", "Calarco", "Argentina", "Chubut", "Puerto Madryn", "2804722352", "fedecalarco", "123123", "fede.calarco@hotmail.com");
+
+        System.out.println(u.getEmail());
+        userService.add(u);
+        
+        return "index";
+    }
 
 }

@@ -45,6 +45,7 @@ public abstract class GenericServiceImpl<E, K>
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void add(E entity) {
+        System.out.println("----------->" + entity.getClass());
         genericDao.add(entity);
     }
 

@@ -5,12 +5,26 @@
  */
 package com.company.tucurso.entity;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  *
  * @author fede
  */
-public abstract class Account {
-    
+@Entity
+// 3 formas de hacer InheritanceType: SINGLE_TABLE (Tabla unica) - JOINED (Una tabla para cada subclase) - TABLE_PER_CLASS (Una tabla por clase concreta)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Account implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long customer_ID;
     private String user;
     private String password;
     private String email;
@@ -23,7 +37,14 @@ public abstract class Account {
         this.password = password;
         this.email = email;
     }
- 
+
+    public long getCustomer_ID() {
+        return customer_ID;
+    }
+
+//    public void setCustomer_ID(long customer_ID) {
+//        this.customer_ID = customer_ID;
+//    }
     public String getUser() {
         return user;
     }
@@ -47,6 +68,5 @@ public abstract class Account {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }
