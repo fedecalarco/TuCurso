@@ -5,22 +5,21 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <title>JSP Page</title>
     </head>
     <body>
         <h1>Tu Curso</h1>
 
         <f:form action="${pageContext.request.contextPath}/user/registrar" >
-            <input type="submit" id="bEnviar" class="btn btn-success btn-lg" value="Registrar usuario"/>
-        </f:form>
-        
-            <br><br>
-
-        <f:form action="${pageContext.request.contextPath}/course/addCourse" >
-            <input type="submit" id="bEnviar" class="btn btn-success btn-lg" value="Agregar Curso"/>
+            <input type="submit" id="bEnviar" class="btn btn-success" value="Registrar usuario"/>
         </f:form>
 
-            <br><br>
+        <br><br>
+
+
+        <br><br>
         <a href="${pageContext.request.contextPath}/course/showCourses">Ver Cursos</a>
         <a href="${pageContext.request.contextPath}/organization/addOrganization">Agregar Organizacion</a>
         <a href="${pageContext.request.contextPath}/course/addCourse">Agregar Curso</a>

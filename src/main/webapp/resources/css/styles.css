@@ -61,7 +61,7 @@ footer{}
     -webkit-border-radius:4px; 
 }
 */
-.input{
+.form-control{
     border:1px solid #dbdbdb;
     padding:0 5px 0 5px;
     height:30px;width:200px;
@@ -69,7 +69,7 @@ footer{}
     color:black;
     font-family: sans-serif;
 }
-.input:focus{
+.form-control:focus{
     border:1px solid rgba(51,153,255,0.4);
     box-shadow:0 0 5px rgba(51,153,255,0.4);
     outline: none;

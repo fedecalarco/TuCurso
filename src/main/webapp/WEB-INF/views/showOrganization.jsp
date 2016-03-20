@@ -16,8 +16,13 @@
     </head>
     <body>
         <h1>${organization.getName()}</h1>
-
         
+            <td/>
+        <h2>Descripcion:</h2>
+        ${organization.getDescription()}
+        
+    <td/>
+        <h2>Lista de cursos:</h2>
         <table class="table table-hover" border="0">
             <tr>
                 <th>Nombre</th>
