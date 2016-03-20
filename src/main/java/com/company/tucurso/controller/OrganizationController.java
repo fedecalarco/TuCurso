@@ -43,7 +43,8 @@ public class OrganizationController {
     }
 
     @RequestMapping(value = "/addOrganization", method = RequestMethod.POST)
-    public String addOrganizationPost(@ModelAttribute(value = "Organization") Organization organization) {
+    public String addOrganization(@ModelAttribute(value = "Organization") Organization organization) {
+        System.out.println("->>>>>>>>>>>>>>>>>>"+organization.getDescription());
         organizationService.add(organization);
         return "index";
     }

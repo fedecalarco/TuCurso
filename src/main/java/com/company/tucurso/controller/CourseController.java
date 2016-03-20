@@ -5,17 +5,10 @@
  */
 package com.company.tucurso.controller;
 
-import com.company.tucurso.entity.Category;
 import com.company.tucurso.entity.Course;
-import com.company.tucurso.entity.Organization;
 import com.company.tucurso.service.CategoryService;
 import com.company.tucurso.service.CourseService;
 import com.company.tucurso.service.OrganizationService;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,21 +33,6 @@ public class CourseController {
         
     @Autowired(required = true)
     CategoryService categoryService;
-
-    // Para testear solamente
-    private List<Category> getCategories() {
-        List<Category> categories = new ArrayList<Category>();
-
-        Category programacion = new Category("Programacion");
-        Category arte = new Category("Arte");
-        Category idioma = new Category("Idioma");
-
-        categories.add(programacion);
-        categories.add(arte);
-        categories.add(idioma);
-
-        return categories;
-    }
 
     @RequestMapping(value = "/addCourse", method = RequestMethod.GET)
     public String addCourse(Model m) {

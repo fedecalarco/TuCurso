@@ -28,7 +28,6 @@ public class UserController {
 
         User u = new User("Federico", "Calarco", "Argentina", "Chubut", "Puerto Madryn", "2804722352", "fedecalarco", "123123", "fede.calarco@hotmail.com");
 
-        System.out.println(u.getEmail());
         userService.add(u);
         
         return "index";
