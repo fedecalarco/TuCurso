@@ -59,7 +59,7 @@ public class CourseController {
     @RequestMapping(value = "/addCourse", method = RequestMethod.GET)
     public String addCourse(Model m) {
 
-        m.addAttribute("categories", getCategories());
+        m.addAttribute("categories", categoryService.getAll());
         m.addAttribute("organizations", organizationService.getAll());
         return "addCourse";
     }

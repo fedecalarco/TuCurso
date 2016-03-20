@@ -9,6 +9,7 @@ import com.company.tucurso.daos.CategoryDao;
 import com.company.tucurso.daos.GenericDAO;
 import com.company.tucurso.entity.Category;
 import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class CategoryServiceImpl extends GenericServiceImpl<Category, Long> impl
     public CategoryServiceImpl(){
         
     }
-    
+    @Autowired
     public CategoryServiceImpl(@Qualifier("categoryDaoImpl")GenericDAO<Category, Long> genericDao){
         super(genericDao);
         this.categoryDao = (CategoryDao) genericDao;
