@@ -22,6 +22,8 @@
 
             <br><br>
         <a href="${pageContext.request.contextPath}/course/showCourses">Ver Cursos</a>
+        <a href="${pageContext.request.contextPath}/organization/addOrganization">Agregar Organizacion</a>
+        <a href="${pageContext.request.contextPath}/course/addCourse">Agregar Curso</a>
 
     </body>
 </html>

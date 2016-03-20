@@ -33,6 +33,7 @@ public class Organization implements Serializable {
     public Organization() {
     }
 
+   
     public Organization(String name) {
         this.name = name;
     }
@@ -41,9 +42,9 @@ public class Organization implements Serializable {
         return organization_ID;
     }
 
-//    public void setOrganization_ID(long organization_ID) {
-//        this.organization_ID = organization_ID;
-//    }
+    public void setOrganization_ID(long organization_ID) {
+        this.organization_ID = organization_ID;
+    }
 
     public String getName() {
         return name;
