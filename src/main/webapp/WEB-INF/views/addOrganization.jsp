@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Agregar Organizacion:</h1>
+        <h1>Agregar Organización:</h1>
         <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data">
 
             <div class="form-group">
@@ -24,12 +24,12 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="description">Descripción:</label>
                 <textarea name="description" class="form-control" rows="5" id="description" maxlength="1000"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="logos">Description</label>
+                <label for="logos">Logo:</label>
                 <input type="file" name="logos" id="logos"> 
             </div>
 

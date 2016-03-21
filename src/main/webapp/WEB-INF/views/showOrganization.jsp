@@ -18,9 +18,9 @@
         <h1>${organization.getName()}</h1>
 
     <td/>
-    <img src="/TuCurso/organization/imageDisplay?id=${organization.getOrganization_ID()}" width="150" height="150"/>
+    <img src="/TuCurso/organization/imageDisplay?id=${organization.getOrganization_ID()}" class="img-thumbnail"  height="150"/>
     <td/>
-    <h2>Descripcion:</h2>
+    <h2>Descripción:</h2>
     ${organization.getDescription()}
     <td/>
     <h2>Lista de cursos:</h2>
@@ -29,9 +29,9 @@
             <th>Nombre</th>
             <th>Categoria</th>
             <th>Organizacion</th>
-            <th>Descripcion</th>
+            <th>Descripción</th>
             <th>Precio</th>
-            <th>Duracion</th>
+            <th>Duración</th>
             <th>Fecha inicio</th>
             <th>Lugar</th>
         </tr>

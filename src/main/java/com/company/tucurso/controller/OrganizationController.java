@@ -53,6 +53,7 @@ public class OrganizationController {
             @RequestParam("logos") MultipartFile file)
             throws IOException {
 
+        System.out.println(organization.getDescription());
         organization.setLogo(file.getBytes());
 
         organizationService.add(organization);
