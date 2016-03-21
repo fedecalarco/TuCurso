@@ -16,46 +16,47 @@
     </head>
     <body>
         <h1>${organization.getName()}</h1>
-        
-            <td/>
-        <h2>Descripcion:</h2>
-        ${organization.getDescription()}
-        
+
     <td/>
-        <h2>Lista de cursos:</h2>
-        <table class="table table-hover" border="0">
+    <img src="/TuCurso/organization/imageDisplay?id=${organization.getOrganization_ID()}" width="150" height="150"/>
+    <td/>
+    <h2>Descripcion:</h2>
+    ${organization.getDescription()}
+    <td/>
+    <h2>Lista de cursos:</h2>
+    <table class="table table-hover" border="0">
+        <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Organizacion</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Duracion</th>
+            <th>Fecha inicio</th>
+            <th>Lugar</th>
+        </tr>
+        <c:forEach items="${lstCourses}" var="p">
             <tr>
-                <th>Nombre</th>
-                <th>Categoria</th>
-                <th>Organizacion</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Duracion</th>
-                <th>Fecha inicio</th>
-                <th>Lugar</th>
+                <td>${p.getName()}</td>
+                <td>${p.getCategory().getName()}</td>
+                <td><a href="${pageContext.request.contextPath}/organization/showOrganization?id=${p.getOrganization().getOrganization_ID()}">${p.getOrganization().getName()}</a></td>
+                <td>${p.getDescription()}</td>
+                <td>$ ${p.getPrice()}</td>
+                <td>${p.getDuration()}</td>
+                <td>${p.getDate()}</td>
+                <td>${p.getLocation()}</td>
+
+
             </tr>
-            <c:forEach items="${lstCourses}" var="p">
-                <tr>
-                    <td>${p.getName()}</td>
-                    <td>${p.getCategory().getName()}</td>
-                    <td><a href="${pageContext.request.contextPath}/organization/showOrganization?id=${p.getOrganization().getOrganization_ID()}">${p.getOrganization().getName()}</a></td>
-                    <td>${p.getDescription()}</td>
-                    <td>$ ${p.getPrice()}</td>
-                    <td>${p.getDuration()}</td>
-                    <td>${p.getDate()}</td>
-                    <td>${p.getLocation()}</td>
-
-
-                </tr>
-            </c:forEach>
+        </c:forEach>
 
 
 
-        </table>
-        
-        
-        <a href="${pageContext.request.contextPath}/">Index</a>
+    </table>
 
-        
-    </body>
+
+    <a href="${pageContext.request.contextPath}/">Index</a>
+
+
+</body>
 </html>

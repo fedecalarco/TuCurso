@@ -23,17 +23,20 @@ public class Organization implements Serializable {
     private long organization_ID;
     private String name;
     private String description;
-
+    private byte[] logo;
     
     public Organization() {
     }
 
    
-    public Organization(String name,String description) {
+
+    public Organization(String name, String description, byte[] logo) {
         this.name = name;
         this.description = description;
+        this.logo = logo;
     }
 
+    
     public long getOrganization_ID() {
         return organization_ID;
     }
@@ -57,6 +60,15 @@ public class Organization implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+    
     
     
 

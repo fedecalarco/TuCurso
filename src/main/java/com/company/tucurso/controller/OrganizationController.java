@@ -7,6 +7,10 @@ package com.company.tucurso.controller;
 
 import com.company.tucurso.entity.Organization;
 import com.company.tucurso.service.OrganizationService;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -43,10 +48,25 @@ public class OrganizationController {
     }
 
     @RequestMapping(value = "/addOrganization", method = RequestMethod.POST)
-    public String addOrganization(@ModelAttribute(value = "Organization") Organization organization) {
-        System.out.println("->>>>>>>>>>>>>>>>>>"+organization.getDescription());
+    public String addOrganization(
+            @ModelAttribute(value = "Organization") Organization organization,
+            @RequestParam("logos") MultipartFile file)
+            throws IOException {
+
+        organization.setLogo(file.getBytes());
+
         organizationService.add(organization);
         return "index";
+    }
+
+    @RequestMapping(value = "imageDisplay", method = GET)
+    public void showImage(@RequestParam Long id, HttpServletResponse response, HttpServletRequest request)
+            throws ServletException, IOException {
+
+        Organization org = organizationService.get(id);
+        response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+        response.getOutputStream().write(org.getLogo());
+        response.getOutputStream().close();
     }
 
 }

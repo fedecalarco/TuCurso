@@ -17,6 +17,20 @@
     
     <dependencies>
         
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        
         <!-- Otros -->
 
         <dependency>
@@ -26,18 +40,18 @@
         </dependency>
 
         <!-- HIBERNATE Y CONEXION -->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.1.0.Final</version>
         </dependency>-->
         
-<dependency>
-  <groupId>org.hibernate</groupId>
-  <artifactId>hibernate-core</artifactId>
-  <version>4.3.11.Final</version>
-  <scope>compile</scope>
-</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.3.11.Final</version>
+            <scope>compile</scope>
+        </dependency>
 
 
         <dependency>

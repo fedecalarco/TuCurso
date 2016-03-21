@@ -20,19 +20,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-    
+
     @Autowired(required = true)
     CategoryService categoryService;
-    
+
     @RequestMapping(value = "/addCategory", method = RequestMethod.GET)
-            public String addCategory(){
-                return "addCategory";
-            }
-    
-            @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
-            public String addCategoryPost(@ModelAttribute(value = "Category") Category category){
-                
-                categoryService.add(category);
-                return "index";
-            }
+    public String addCategory() {
+        return "addCategory";
+    }
+
+    @RequestMapping(value = "/addCategory", method = RequestMethod.POST)
+    public String addCategoryPost(@ModelAttribute(value = "Category") Category category) {
+
+        categoryService.add(category);
+        return "index";
+    }
+
 }
