@@ -6,6 +6,7 @@
 package com.company.tucurso.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,7 @@ public class Organization implements Serializable {
     private long organization_ID;
     private String name;
     private String description;
+    @Column(columnDefinition = "LONGBLOB")
     private byte[] logo;
     
     public Organization() {
