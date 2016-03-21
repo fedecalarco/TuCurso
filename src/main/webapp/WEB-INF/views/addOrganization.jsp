@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>Agregar Organización:</h1>
-        <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data">
+        <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data" acceptCharset="utf-8">
 
             <div class="form-group">
                 <label for="name">Nombre: </label><br/>
