@@ -57,7 +57,7 @@
                            
                             <ul class="list-group">
                                 <c:forEach items="${listCourses}" var="p">
-                                    <a href="#" class="row list-group-item">
+                                    <a href="${pageContext.request.contextPath}/course/describeCourse?id=${p.getCouse_ID()}" class="row list-group-item">
                                         <div class="col-md-10">
                                             <h2 id="curso-tiulo">${p.getName()}</h2>
                                             <h4>${p.getOrganization().getName()}</h4>

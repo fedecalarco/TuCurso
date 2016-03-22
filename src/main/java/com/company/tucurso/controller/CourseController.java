@@ -71,4 +71,11 @@ public class CourseController {
         m.addAttribute("listCategories", categoryService.getAll());
         return "showCourses";
     }
+    
+    
+        @RequestMapping(value = "/describeCourse")
+    public String describeCourse(Model m, @RequestParam Long id) {
+        m.addAttribute("course", courseService.get(id));
+        return "describeCourse";
+    }
 }
