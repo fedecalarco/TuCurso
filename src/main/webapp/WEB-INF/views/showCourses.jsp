@@ -22,51 +22,59 @@
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
-
+            <div class="row"><div class="col-md-12" style="text-align:center "><h1>Cursos</h1></div></div>
             <div class="row">
+                 
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
 
                     <div class="row">
-                        <div class="col-md-2">Filtros</div>
-                        <div class="col-md-10">
+                        <div class="col-md-2">
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Categoria</div>
+                                    <div class="panel-body">
+                                        <c:forEach items="${listCategories}" var="c">
+                                            <a href="">${c.getName()}</a><br/>
+                                        </c:forEach>
 
-                            <h1>Cursos</h1>
-                            <div>
-                                <td/>
-                                <table class="table table-hover" border="0">
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Categoria</th>
-                                        <th>Organizacion</th>
-                                        <th>Descripcion</th>
-                                        <th>Precio</th>
-                                        <th>Duracion</th>
-                                        <th>Fecha inicio</th>
-                                        <th>Lugar</th>
-                                    </tr>
-                                    <c:forEach items="${listCourses}" var="p">
-                                        <tr>
-                                            <td>${p.getName()}</td>
-                                            <td>${p.getCategory().getName()}</td>
-                                            <td><a href="${pageContext.request.contextPath}/organization/showOrganization?id=${p.getOrganization().getOrganization_ID()}">${p.getOrganization().getName()}</a></td>
-                                            <td>${p.getDescription()}</td>
-                                            <td>$ ${p.getPrice()}</td>
-                                            <td>${p.getDuration()}</td>
-                                            <td>${p.getDate()}</td>
-                                            <td>${p.getLocation()}</td>
+                                    </div>
+
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Ciudad</div>
+                                    <div class="panel-body">La Plata</div>
+                                </div>
 
 
-                                        </tr>
-                                    </c:forEach>
-
-
-
-                                </table>
 
                             </div>
 
 
+
+                        </div>
+                        <div class="col-md-10" id="cursos">
+                           
+                            <ul class="list-group">
+                                <c:forEach items="${listCourses}" var="p">
+                                    <a href="#" class="row list-group-item">
+                                        <div class="col-md-10">
+                                            <h2 id="curso-tiulo">${p.getName()}</h2>
+                                            <h4>${p.getOrganization().getName()}</h4>
+                                            <p>${p.getDescription()}</p> 
+                                        </div>
+                                        <div class="col-md-2" id="curso-panelderecha">
+                                            <h5>Precio: $${p.getPrice()}</h5>
+                                            <h5>Duración: ${p.getDuration()}</h5>
+                                            <h5>Inicio: ${p.getDate()}</h5>
+                                            <h5>Lugar: ${p.getLocation()}</h5>
+
+                                        </div>
+
+
+                                    </a>
+                                </c:forEach>
+                            </ul>
                         </div>
 
                     </div>

@@ -68,6 +68,7 @@ public class CourseController {
     @RequestMapping(value = "/showCourses")
     public String showCourses(Model m) {
         m.addAttribute("listCourses", courseService.getAll());
+        m.addAttribute("listCategories", categoryService.getAll());
         return "showCourses";
     }
 }

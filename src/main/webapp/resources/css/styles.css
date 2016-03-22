@@ -15,18 +15,40 @@ html, body {
 
 #contenido-ppal{
     text-align: center;
+    margin-bottom:  120px;
+}
+
+#cursos{
+    margin-bottom: 120px;
+    
 }
 
 #footer{
     background-color:  gainsboro;
     text-align: center;
-    padding: 40px;
+    padding: 10px;
+    
 }
 
 #cursoDestacado{
     background-color: ghostwhite;
     border: 1px solid #848484;
     -webkit-border-radius:10px; 
+}
+
+.list-group-item{
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+#curso-panelderecha{
+    padding: 20px;
+    margin: 0px;
+    background-color: whitesmoke;
+}
+
+#curso-tiulo{
+    color: skyblue;
 }
 
 
