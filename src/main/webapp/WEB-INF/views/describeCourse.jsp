@@ -47,11 +47,13 @@
             }(document, 'script', 'facebook-jssdk'));</script>
 
 
-        <div class="container-fluid" >
 
+
+        <div class="container-fluid" >
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
+
 
             <div class="row">
 
@@ -59,10 +61,13 @@
 
                 <div class="col-md-10" id="contenido-ppal" >
 
-                    fed
-
-
-
+                    <h1>${course.getName()}</h1>
+                    <a href="${pageContext.request.contextPath}/organization/showOrganization?id=${course.getOrganization().getOrganization_ID()}"><h4>${course.getOrganization().getName()}</h4></a>
+                    <h3>${course.getDescription()}</h3>
+                    <h4>Precio: $${course.getPrice()}</h4>
+                    <h4>Duración: ${course.getDuration()}</h4>
+                    <h4>Inicio: ${course.getDate()}</h4>
+                    <h4>Lugar: ${course.getLocation()}</h4>
 
                 </div>
 
@@ -77,24 +82,22 @@
             <div class="row">
                 <div class="col-md-1"></div>  
                 <div class="col-md-10" style="text-align: center">
+                    <h2>Comentarios:</h2>
                     <div class="fb-comments" data-href="http://localhost:8080/TuCurso/course/describeCourse?id=${course.getCouse_ID()}" data-numposts="5"></div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
 
-            <footer class="navbar navbar-fixed-bottom">
-                <div class="row">
-                    <div class="col-md-12" id="footer">
-                        <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="45" width="45"/></a>
-                        <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="45" width="45"/></a>
-                        <br/>@TuCurso.com.ar
-                    </div>
-                </div>
-            </footer>
-
-
         </div>
 
+
+        <footer class="footer">
+            <div class="col-md-12" id="footer">
+                <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="45" width="45"/></a>
+                <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="45" width="45"/></a>
+                <br/>@TuCurso.com.ar
+            </div>
+        </footer>
 
 
     </body>

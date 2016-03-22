@@ -44,7 +44,7 @@
                         <div class="col-md-4"> </div>
                         <div class="col-md-4">
 
-                            <f:form  role="from">
+                            <f:form  action="${pageContext.request.contextPath}/course/showCourses/" role="from">
 
                                 <div class="form-group">
                                     <label for="idCat">Categoria: </label><br/>
