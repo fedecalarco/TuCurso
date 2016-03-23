@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 /**
@@ -28,6 +29,7 @@ public class Course implements Serializable {
     private Category category;
     @OneToOne(cascade = {CascadeType.ALL})
     private Organization organization;
+    @Lob
     private String description;
     private double price;
     private String duration;

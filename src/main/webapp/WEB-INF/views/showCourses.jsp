@@ -24,7 +24,7 @@
             </header>
             <div class="row"><div class="col-md-12" style="text-align:center "><h1>Cursos</h1></div></div>
             <div class="row">
-                 
+
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
 
@@ -54,7 +54,7 @@
 
                         </div>
                         <div class="col-md-10" id="cursos">
-                           
+
                             <ul class="list-group">
                                 <c:forEach items="${listCourses}" var="p">
                                     <a href="${pageContext.request.contextPath}/course/describeCourse?id=${p.getCouse_ID()}" class="row list-group-item">
@@ -94,22 +94,12 @@
 
                 </div>
                 <div class="col-md-1"></div>
-
-
-                <footer class="navbar navbar-fixed-bottom">
-                    <div class="row" id="footer">
-                        <div >
-                            <div class="col-md-4"><a href="${pageContext.request.contextPath}/">Index</a></div>
-                            <div class="col-md-4" >
-                                <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="45" width="45"/></a>
-                                <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="45" width="45"/></a>
-                                <br/>@TuCurso.com.ar
-                            </div>
-                            <div class="col-md-4"></div>
-                        </div>
-                    </div>
-                </footer>
             </div>
+
+
+            <footer class="footer">
+                <%@include file="/resources/maquetacion/footer.jsp" %>
+            </footer>
         </div>
 
 

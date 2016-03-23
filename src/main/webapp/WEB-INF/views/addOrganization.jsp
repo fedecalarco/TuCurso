@@ -9,13 +9,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+<!--        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Agregar Organización:</h1>
+        <h1>Agregar Organizacion:</h1>
         <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data" acceptCharset="utf-8">
 
             <div class="form-group">
@@ -24,8 +24,8 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Descripción:</label>
-                <textarea name="description" class="form-control" rows="5" id="description" maxlength="1000"></textarea>
+                <label for="description">Descripcion:</label>
+                <textarea name="description" class="form-control" rows="5" id="description"></textarea>
             </div>
 
             <div class="form-group">

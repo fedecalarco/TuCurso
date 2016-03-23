@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Organization implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long organization_ID;
     private String name;
+    @Lob
     private String description;
     @Column(columnDefinition = "LONGBLOB")
     private byte[] logo;

@@ -88,17 +88,13 @@
                 <div class="col-md-1"></div>
             </div>
 
+
+
+
+            <footer class="footer">
+                <%@include file="/resources/maquetacion/footer.jsp" %>
+            </footer>
+
         </div>
-
-
-        <footer class="footer">
-            <div class="col-md-12" id="footer">
-                <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="45" width="45"/></a>
-                <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="45" width="45"/></a>
-                <br/>@TuCurso.com.ar
-            </div>
-        </footer>
-
-
     </body>
 </html>
