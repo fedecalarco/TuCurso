@@ -9,16 +9,77 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <style type="text/css"><%@include file="/resources/css/styles.css" %></style>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
 
+        <script>
+            $(document).ready(function () {
+                $("#pais").change(function () {
+                    var pais = $(this).val();
+                    // Si selecciono pais 
+                    if (pais != "-") {
+                        $("#prov").find('option').remove().end().append('<option value="-">Seleccione provincia</option>');
+                        $.ajax({
+                            type: "POST",
+                            url: "${pageContext.request.contextPath}/ajax/cargarProv",
+                            datatype: 'json',
+                            data: {pais: pais},
+                            success: function (prov) {
+                                mostrarProv(prov);
+                            },
+                            error: function (e) {
+                                alert('Error 2: ' + e);
+                            }
+                        });
+                    } else {
+                        $("#prov").attr("disabled", "disabled");
+                        $("#prov").find('option').remove().end.append('<option value="-1">Seleccione provincia</option>');
+                    }
+
+
+                });
+                function mostrarProv(data) {
+                    for (var i = 0, len = data.length; i < len; ++i) {
+                        var aux = data[i];
+                        $("#prov").append("<option value=\"" + aux + "\">" + aux + "</option>");
+                    }
+                    $("#prov").removeAttr("disabled");
+                }
+
+
+                // Ciudad
+
+                $("#prov").change(function () {
+
+                    var prov = $(this).val();
+                    // Si selecciono pais
+                    if (prov != "-") {
+                        alert(prov);
+                    } else {
+                        alert(11);
+                    }
+
+
+                });
+            });
+
+
+
+
+
+
+
+        </script>
 
         <div class="container-fluid" >
 
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
+
+            <button>Clik</button>
 
             <div class="row">
 
@@ -61,6 +122,7 @@
                                         <div class="form-group">
                                             <label for="pais">Pais: </label><br/>
                                             <select name="pais" id="pais" class="form-control">
+                                                <option value="-">Seleccione pais</option>
                                                 <c:forEach items="${pais}" var="pais">
                                                     <option value="${pais}">${pais}</option>
                                                 </c:forEach>
@@ -70,17 +132,15 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="prov">Provincia: </label><br/>
-                                            <select name="prov" id="prov" class="form-control">
-                                                <c:forEach items="${prov}" var="prov">
-                                                    <option value="${prov}">${prov}</option>
-                                                </c:forEach>
+                                            <select name="prov" id="prov" class="form-control" disabled="disabled">
+                                                <option value="-">Seleccione provincia</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="ciudad">Ciudad: </label><br/>
-                                            <select name="ciudad" id="ciudad" class="form-control">
+                                            <select name="ciudad" id="ciudad" class="form-control" disabled="disabled">
                                                 <c:forEach items="${ciudad}" var="ciudad">
                                                     <option value=""${ciudad}>${ciudad}</option>
                                                 </c:forEach>

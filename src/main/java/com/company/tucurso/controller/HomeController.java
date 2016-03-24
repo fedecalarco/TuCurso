@@ -28,36 +28,17 @@ public class HomeController {
         
         model.addAttribute("categories", categoryService.getAll());
         model.addAttribute("pais", paises());
-        model.addAttribute("prov", provincias());
-        model.addAttribute("ciudad", ciudades());
         return "index";
     }
     
-    private List<String> ciudades(){
-        List<String> lstCiudades = new ArrayList<String>();
-        lstCiudades.add("La Plata");
-        lstCiudades.add("Capital Federal");
-        lstCiudades.add("Puerto Madryn");
-        
-        return lstCiudades;
-    }
     
         private List<String> paises(){
         List<String> lstCiudades = new ArrayList<String>();
         lstCiudades.add("Argentina");
         lstCiudades.add("Uruguay");
-        lstCiudades.add("Chile");
-        
         return lstCiudades;
     }
-            private List<String> provincias(){
-        List<String> lstCiudades = new ArrayList<String>();
-        lstCiudades.add("Buenos Aires");
-        lstCiudades.add("Chubut");
-        lstCiudades.add("Cordoba");
-        
-        return lstCiudades;
-    }
+
     
     
 }
