@@ -79,7 +79,23 @@ public class LocationServiceImpl implements LocationService{
 
     @Override
     public List getCity(String province) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<String> city = new LinkedList<String>();
+        switch (province) {
+            case "Buenos Aires":
+                city.add("La Plata");
+                city.add("Bahia Blanca");
+                city.add("Tandil");
+                city.add("Otra");
+                
+                
+                break;
+            case "CABA":
+                city.add("Palermo");
+                city.add("Nuñez");
+                city.add("Retiro");
+                break;
+        }
+        return city;
     }
     
 }

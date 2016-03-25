@@ -45,6 +45,7 @@
                 });
                 function mostrarProv(data) {
                     $("#prov").find('option').remove();
+                    $("#prov").append('<option value="-">Seleccione provincia</option>');
                     for (var i = 0, len = data.length; i < len; ++i) {
                         var aux = data[i];
                         $("#prov").append("<option value=\"" + aux + "\">" + aux + "</option>");
@@ -153,7 +154,7 @@
                                             <select name="pais" id="pais" class="form-control">
                                                 <option value="-">Seleccione pais</option>
                                                 <c:forEach items="${pais}" var="pais">
-                                                    <option value="${pais}">${pais}</option>
+                                                    <option value ="${pais}">${pais}</option>
                                                 </c:forEach>
                                             </select>
                                         </div>
@@ -170,7 +171,7 @@
                                         <div class="form-group">
                                             <label for="ciudad">Ciudad: </label><br/>
                                             <select name="ciudad" id="ciudad" class="form-control" disabled="disabled">
-                                                <option value="-"></option>
+                                                <option value="-" disabled="disabled"></option>
                                             </select>
                                         </div>  
                                     </div>
