@@ -21,7 +21,7 @@
                     var pais = $(this).val();
                     // Si selecciono pais 
                     if (pais != "-") {
-                        $("#prov").find('option').remove().end().append('<option value="-">Seleccione provincia</option>');
+                        $("#prov").find('option').remove().end().append('<option value="-">Cargando provincias</option>');
                         $.ajax({
                             type: "POST",
                             url: "${pageContext.request.contextPath}/ajax/cargarProv",
@@ -36,12 +36,15 @@
                         });
                     } else {
                         $("#prov").attr("disabled", "disabled");
-                        $("#prov").find('option').remove().end.append('<option value="-">Seleccione provincia</option>');
+                        $("#ciudad").attr("disabled", "disabled");
+                        $("#prov").find('option').remove();
+                        $("#ciudad").find('option').remove();
                     }
 
 
                 });
                 function mostrarProv(data) {
+                    $("#prov").find('option').remove();
                     for (var i = 0, len = data.length; i < len; ++i) {
                         var aux = data[i];
                         $("#prov").append("<option value=\"" + aux + "\">" + aux + "</option>");
@@ -57,13 +60,37 @@
                     var prov = $(this).val();
                     // Si selecciono pais
                     if (prov != "-") {
-                        $("#prov").find('option').remove().end().append('<option value="-">Seleccione provincia</option>');
+                        $("#ciudad").find('option').remove().end().append('<option value="-">Cargando ciudades</option>');
+
+                        $.ajax({
+                            type: "POST",
+                            url: "${pageContext.request.contextPath}/ajax/cargarCiudad",
+                            datatype: 'json',
+                            data: {prov: prov},
+                            success: function (ciudad) {
+                                mostrarCiudad(ciudad);
+                            },
+                            error: function (e) {
+                                alert('Error 3: ' + e);
+                            }
+                        });
+
                     } else {
-                        alert(11);
+                        $("#ciudad").attr("disabled", "disabled");
+                        $("#ciudad").find('option').remove();
                     }
 
 
                 });
+
+                function mostrarCiudad(data) {
+                $("#ciudad").find('option').remove();
+                    for (var i = 0, len = data.length; i < len; ++i) {
+                        var aux = data[i];
+                        $("#ciudad").append("<option value=\"" + aux + "\">" + aux + "</option>");
+                    }
+                    $("#ciudad").removeAttr("disabled");
+                }
             });
 
         </script>
@@ -89,7 +116,7 @@
 
                     <br/>
 
-                    
+
 
 
                     <h2>Ingrese el curso que desea buscar:</h2>
@@ -226,7 +253,7 @@
         </div>
 
 
-  
+
 
 
     </body>

@@ -6,6 +6,7 @@
 package com.company.tucurso.service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class LocationServiceImpl implements LocationService{
     @Override
     public List getProvice(String pais) {
 
-        List<String> prov = new ArrayList<String>();
+        List<String> prov = new LinkedList<String>();
         
         switch(pais){
             case "Argentina":
