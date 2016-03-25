@@ -39,4 +39,12 @@ public class ajax {
     return locationService.getProvice(pais); 
     }
     
+    
+        @RequestMapping(value="/cargarCiudad",method = RequestMethod.POST)
+    public @ResponseBody List getCity(
+            Model m,
+            @RequestParam("prov") String prov
+    ){
+    return locationService.getCity(prov); 
+    }
 }
