@@ -10,6 +10,7 @@
         <style type="text/css"><%@include file="/resources/css/styles.css" %></style>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
         <title>JSP Page</title>
     </head>
     <body>
@@ -35,7 +36,7 @@
                         });
                     } else {
                         $("#prov").attr("disabled", "disabled");
-                        $("#prov").find('option').remove().end.append('<option value="-1">Seleccione provincia</option>');
+                        $("#prov").find('option').remove().end.append('<option value="-">Seleccione provincia</option>');
                     }
 
 
@@ -56,7 +57,7 @@
                     var prov = $(this).val();
                     // Si selecciono pais
                     if (prov != "-") {
-                        alert(prov);
+                        $("#prov").find('option').remove().end().append('<option value="-">Seleccione provincia</option>');
                     } else {
                         alert(11);
                     }
@@ -65,13 +66,9 @@
                 });
             });
 
-
-
-
-
-
-
         </script>
+
+
 
         <div class="container-fluid" >
 
@@ -79,16 +76,21 @@
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
 
-            <button>Clik</button>
-
             <div class="row">
 
-                <div class="col-md-1"></div>
+                <div class="col-md-1">
+
+
+
+                </div>
 
                 <div class="col-md-10" id="contenido-ppal" >
 
 
                     <br/>
+
+                    
+
 
                     <h2>Ingrese el curso que desea buscar:</h2>
 
@@ -133,7 +135,7 @@
                                         <div class="form-group">
                                             <label for="prov">Provincia: </label><br/>
                                             <select name="prov" id="prov" class="form-control" disabled="disabled">
-                                                <option value="-">Seleccione provincia</option>
+                                                <option value="-"></option>
                                             </select>
                                         </div>
                                     </div>
@@ -141,9 +143,7 @@
                                         <div class="form-group">
                                             <label for="ciudad">Ciudad: </label><br/>
                                             <select name="ciudad" id="ciudad" class="form-control" disabled="disabled">
-                                                <c:forEach items="${ciudad}" var="ciudad">
-                                                    <option value=""${ciudad}>${ciudad}</option>
-                                                </c:forEach>
+                                                <option value="-"></option>
                                             </select>
                                         </div>  
                                     </div>
@@ -225,6 +225,8 @@
 
         </div>
 
+
+  
 
 
     </body>
