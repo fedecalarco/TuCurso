@@ -6,11 +6,12 @@
 package com.company.tucurso.daos;
 
 import com.company.tucurso.entity.Course;
+import java.util.List;
 
 /**
  *
  * @author fedec
  */
 public interface CourseDao extends GenericDAO<Course, Long>{
-    
+    public List<Course> getCourseFilter(Long categoryId);
 }

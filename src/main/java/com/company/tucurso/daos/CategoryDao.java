@@ -12,5 +12,5 @@ import com.company.tucurso.entity.Category;
  * @author fedec
  */
 public interface CategoryDao extends GenericDAO<Category, Long>{
-    
+    public Category getCategoryByName(String category);
 }

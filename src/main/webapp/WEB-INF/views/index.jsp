@@ -188,7 +188,7 @@
 
                     <br><br>
 
-                    <div class="row">
+<!--                    <div class="row">
                         <h2>Cursos destacados</h2>
                         <div class="col-md-3" >
                             <div id="cursoDestacado">
@@ -225,7 +225,7 @@
 
 
 
-                    </div>
+                    </div>-->
 
 
                     <br><br>
@@ -243,8 +243,8 @@
             <footer class="navbar navbar-fixed-bottom">
                 <div class="row">
                     <div class="col-md-12" id="footer">
-                        <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="45" width="45"/></a>
-                        <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="45" width="45"/></a>
+                        <a href=""><img src="http://icons.iconarchive.com/icons/martz90/circle/512/fb-icon.png"  height="25" width="25"/></a>
+                        <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="25" width="25"/></a>
                         <br/>@TuCurso.com.ar
                     </div>
                 </div>

@@ -12,5 +12,5 @@ import com.company.tucurso.entity.Category;
  * @author fedec
  */
 public interface CategoryService extends GenericService<Category, Long> {
-    
+    public Category getCategoryByName(String category);
 }

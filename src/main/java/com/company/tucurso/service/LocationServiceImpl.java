@@ -94,6 +94,9 @@ public class LocationServiceImpl implements LocationService{
                 city.add("Nuñez");
                 city.add("Retiro");
                 break;
+                
+                default: city.add("Otra");
+                    break;
         }
         return city;
     }

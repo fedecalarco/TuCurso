@@ -16,5 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository("categoryDaoImpl")
 public class CategoryDaoImpl extends GenericDAOImpl<Category, Long> implements CategoryDao{
+
+    @Override
+    public Category getCategoryByName(String category) {
+        return (Category) currentSession().createQuery("FROM com.company.tucurso.entity.Category WHERE name='"+  category + "'" ).uniqueResult();
+    }
     
 }

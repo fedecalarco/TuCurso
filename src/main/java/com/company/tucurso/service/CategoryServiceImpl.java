@@ -32,4 +32,9 @@ public class CategoryServiceImpl extends GenericServiceImpl<Category, Long> impl
         super(genericDao);
         this.categoryDao = (CategoryDao) genericDao;
     }
+
+    @Override
+    public Category getCategoryByName(String category) {
+        return categoryDao.getCategoryByName(category);
+    }
 }

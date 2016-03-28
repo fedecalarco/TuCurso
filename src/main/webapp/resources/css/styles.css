@@ -15,7 +15,8 @@ html, body {
 
 #contenido-ppal{
     text-align: center;
-    margin-bottom:  120px;
+    
+    
 }
 
 #cursos{
@@ -26,7 +27,7 @@ html, body {
 #footer{
     background-color:  gainsboro;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     
 }
 

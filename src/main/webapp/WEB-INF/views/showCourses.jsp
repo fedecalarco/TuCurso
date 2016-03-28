@@ -32,18 +32,37 @@
                         <div class="col-md-2">
                             <div class="panel-group">
                                 <div class="panel panel-default">
+                                    <div class="panel-heading">Filtros</div>
+                                    <div class="panel-body">
+                                        <c:forEach items="${listaFiltros}" var="f">
+                                            <a href="${pageContext.request.contextPath}/course/showCourses">${f}</a><br/>
+
+                                        </c:forEach>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+
                                     <div class="panel-heading">Categoria</div>
                                     <div class="panel-body">
                                         <c:forEach items="${listCategories}" var="c">
-                                            <a href="">${c.getName()}</a><br/>
+                                            <a href="${pageContext.request.contextPath}/course/showCourseFilter/categoria-${c.getName()}">${c.getName()}</a><br/>
+
                                         </c:forEach>
 
                                     </div>
 
                                 </div>
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">Ciudad</div>
-                                    <div class="panel-body">La Plata</div>
+                                    <div class="panel-heading">Provincia</div>
+                                    <div class="panel-body">
+                                        <c:forEach items="${listProv}" var="p">
+                                            <a href="">${p}</a><br/>
+                                            
+                                        </c:forEach>
+                                        
+                                    </div>
                                 </div>
 
 

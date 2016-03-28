@@ -8,6 +8,7 @@ package com.company.tucurso.service;
 import com.company.tucurso.daos.CourseDao;
 import com.company.tucurso.daos.GenericDAO;
 import com.company.tucurso.entity.Course;
+import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,5 +30,12 @@ public CourseServiceImpl(@Qualifier("courseDaoImpl")GenericDAO<Course, Long> gen
     super(genericDao);
     this.courseDao = (CourseDao) genericDao;
 }
+
+    @Override
+    public List getCourseFilter(Long categoryId) {
+        return courseDao.getCourseFilter(categoryId);
+    }
+
+
 
 }
