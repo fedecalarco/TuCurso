@@ -10,7 +10,7 @@ import com.company.tucurso.service.CategoryService;
 import com.company.tucurso.service.CourseService;
 import com.company.tucurso.service.LocationService;
 import com.company.tucurso.service.OrganizationService;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,15 +52,6 @@ public class CourseController {
     @RequestMapping(value = "/addCourse", method = RequestMethod.POST)
     public String addCourse(@ModelAttribute(value = "Course") Course course, @RequestParam("idOrg") Long idOrg, @RequestParam("idCat") Long idCat) {
 
-//        Organization comIT = organizationService.get(Long.valueOf(1));
-//        Category programacion = new Category("Programacion");
-//        Course javaInicial = new Course("Java inicial", programacion, comIT, "Curso de java para no programadores", 200, "200hs", "20/05", "La Plata");
-//       
-//                System.out.println(course.getOrganization().getName()+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-//                Long l = Long.parseLong(course.getOrganization().getName());
-        System.out.println("<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>cat" + idCat);
-        System.out.println("<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>org" + idOrg);
-//                
         course.setOrganization(organizationService.get(idOrg));
         course.setCategory(categoryService.get(idCat));
 
@@ -77,17 +68,28 @@ public class CourseController {
         return "showCourses";
     }
 
-    @RequestMapping(value = "/showCourseFilter/categoria-{idCategory}", method = RequestMethod.GET)
+    @RequestMapping(value = "/showCourseFilter", method = RequestMethod.GET)
     public String showCoursesFilter(
             Model m,
-            @PathVariable("idCategory") String category
+            @RequestParam(value="idCategory", required = false) String category,
+            @RequestParam(value="prov", required = false) String prov
     ) {
+        List<String> filtros = new ArrayList<String>();
         
+        if(category != null){
         m.addAttribute("listCourses", courseService.getCourseFilter(categoryService.getCategoryByName(category).getCategory_ID()));
+        filtros.add(category);
+        }
+        
+        if(prov != null){
+            filtros.add(prov);
+        }
+        
         m.addAttribute("listCategories", categoryService.getAll());
         m.addAttribute("listProv", locationService.getProvice("Argentina"));
 
-        m.addAttribute("listaFiltros",category);
+        m.addAttribute("listaFiltros",filtros);
+        
         return "showCourses";
     }
 

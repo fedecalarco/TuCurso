@@ -47,7 +47,7 @@
                                     <div class="panel-heading">Categoria</div>
                                     <div class="panel-body">
                                         <c:forEach items="${listCategories}" var="c">
-                                            <a href="${pageContext.request.contextPath}/course/showCourseFilter/categoria-${c.getName()}">${c.getName()}</a><br/>
+                                            <a href="${pageContext.request.contextPath}/course/showCourseFilter?idCategory=${c.getName()}">${c.getName()}</a><br/>
 
                                         </c:forEach>
 
@@ -58,7 +58,7 @@
                                     <div class="panel-heading">Provincia</div>
                                     <div class="panel-body">
                                         <c:forEach items="${listProv}" var="p">
-                                            <a href="">${p}</a><br/>
+                                            <a href="${pageContext.request.contextPath}/course/showCourseFilter?prov=${p}">${p}</a><br/>
                                             
                                         </c:forEach>
                                         

@@ -35,9 +35,9 @@ public class OrganizationServiceImpl extends GenericServiceImpl<Organization, Lo
     }
     
     @Override
-    public List<Course> getCourses(Long id){
+    public List<Course> getCourses(Long courseId){
       
-        return organizationDao.getCourses(id);
+        return organizationDao.getCourses(courseId);
         
     }
 }

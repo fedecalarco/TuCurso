@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface OrganizationService extends GenericService<Organization, Long>{
     
-    List<Course> getCourses(Long id);
+    List<Course> getCourses(Long courseId);
 }
