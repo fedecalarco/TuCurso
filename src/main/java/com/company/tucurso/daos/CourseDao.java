@@ -13,5 +13,5 @@ import java.util.List;
  * @author fedec
  */
 public interface CourseDao extends GenericDAO<Course, Long>{
-    public List<Course> getCourseFilter(Long categoryId);
+    public List<Course> getCourseFilter(String searchTxt, String location);
 }

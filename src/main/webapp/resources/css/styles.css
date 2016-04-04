@@ -4,11 +4,11 @@ html, body {
 }
 
 #barraSuperior{
-    background-color: mediumseagreen;
+    background-color: #037E8C;
 }
 
 #barraSuperior2{
-    background-color: black;
+    background-color: #024959;
     color: white;
     text-align: right;
 }
@@ -32,7 +32,7 @@ html, body {
 }
 
 #cursoDestacado{
-    background-color: ghostwhite;
+    background-color: #FFFFFA;
     border: 1px solid #848484;
     -webkit-border-radius:10px; 
 }

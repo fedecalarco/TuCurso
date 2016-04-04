@@ -19,13 +19,28 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository("courseDaoImpl")
 public class CourseDaoImpl extends GenericDAOImpl<Course, Long> implements CourseDao {
 
+//    @Override
+//    public List<Course> getCourseFilter(Long categoryId) {
+//
+//        List<Course> courses = new ArrayList<Course>();
+//
+//        courses = currentSession().createQuery("FROM com.company.tucurso.entity.Course WHERE category.category_ID='" + categoryId + "'").list();
+//        //  courses = currentSession().createQuery("FROM com.company.entity.Course WHERE organization='" +  +"'");
+//        return courses;
+//    }
     @Override
-    public List<Course> getCourseFilter(Long categoryId) {
-
+    public List<Course> getCourseFilter(String searchTxt, String location) {
         List<Course> courses = new ArrayList<Course>();
 
-        courses = currentSession().createQuery("FROM com.company.tucurso.entity.Course WHERE category.category_ID='" + categoryId + "'").list();
-        //  courses = currentSession().createQuery("FROM com.company.entity.Course WHERE organization='" +  +"'");
+        String desciptionQuery = "(description LIKE '%" + searchTxt + "%')";
+        String nameQuery = "(name LIKE '%" + searchTxt + "%')";
+        String otro = "(" + nameQuery + " OR " + desciptionQuery + ")";
+     //   String categoryQuery = "(category.category_ID='" + category + "')";
+        String cityQuery = "(location LIKE '%" + location + "%')";
+        
+        
+        courses = currentSession().createQuery("FROM com.company.tucurso.entity.Course WHERE " +  otro + " AND " + cityQuery).list();
+
         return courses;
     }
 

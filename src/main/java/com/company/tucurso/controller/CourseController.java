@@ -6,6 +6,8 @@
 package com.company.tucurso.controller;
 
 import com.company.tucurso.entity.Course;
+import com.company.tucurso.entity.Search;
+import com.company.tucurso.entity.SearchFilter;
 import com.company.tucurso.service.CategoryService;
 import com.company.tucurso.service.CourseService;
 import com.company.tucurso.service.LocationService;
@@ -37,7 +39,7 @@ public class CourseController {
 
     @Autowired(required = true)
     CategoryService categoryService;
-    
+
     @Autowired(required = true)
     LocationService locationService;
 
@@ -60,42 +62,65 @@ public class CourseController {
         return "index";
     }
 
-    @RequestMapping(value = "/showCourses")
-    public String showCourses(Model m) {
+    @RequestMapping(value = "/showAllCourses")
+    public String showAllCourses(Model m) {
         m.addAttribute("listCourses", courseService.getAll());
         m.addAttribute("listCategories", categoryService.getAll());
         m.addAttribute("listProv", locationService.getProvice("Argentina"));
         return "showCourses";
     }
 
-    @RequestMapping(value = "/showCourseFilter", method = RequestMethod.GET)
-    public String showCoursesFilter(
+    @RequestMapping(value = "/showCourses")
+    public String showCourses(
             Model m,
-            @RequestParam(value="idCategory", required = false) String category,
-            @RequestParam(value="prov", required = false) String prov
-    ) {
-        List<String> filtros = new ArrayList<String>();
-        
-        if(category != null){
-        m.addAttribute("listCourses", courseService.getCourseFilter(categoryService.getCategoryByName(category).getCategory_ID()));
-        filtros.add(category);
-        }
-        
-        if(prov != null){
-            filtros.add(prov);
-        }
-        
+            @ModelAttribute(value = "searchFilter") Search searchFilter) {
+
+        // Mostrar contenido en el menu izquierdo ( categoriesLst - provLst)
         m.addAttribute("listCategories", categoryService.getAll());
         m.addAttribute("listProv", locationService.getProvice("Argentina"));
 
-        m.addAttribute("listaFiltros",filtros);
-        
+        List<String> filtros = new ArrayList();
+        if (!"".equals(searchFilter.getSeachTxt()) && !"".equals(searchFilter.getLocation())) {
+            filtros.add(searchFilter.getSeachTxt());
+            filtros.add(searchFilter.getLocation());
+        }else if(!"".equals(searchFilter.getSeachTxt())){
+            filtros.add(searchFilter.getSeachTxt());
+        }else if(!"".equals(searchFilter.getLocation())){
+            filtros.add(searchFilter.getLocation());
+        }
+
+        m.addAttribute("listaFiltros", filtros);
+
+        m.addAttribute("listCourses", courseService.getCourseFilter(searchFilter));
+
         return "showCourses";
     }
+//
+//    @RequestMapping(value = "/showCourseFilter", method = RequestMethod.GET)
+//    public String showCoursesFilter(
+//            Model m,
+//            @RequestParam(value = "idCategory", required = false) String category,
+//            @RequestParam(value = "prov", required = false) String prov
+//    ) {
+//        List<String> filtros = new ArrayList<String>();
+//
+//        if (category != null) {
+//            m.addAttribute("listCourses", courseService.getCourseFilter(categoryService.getCategoryByName(category).getCategory_ID()));
+//            filtros.add(category);
+//        }
+//
+//        if (prov != null) {
+//            filtros.add(prov);
+//        }
+//
+//        m.addAttribute("listCategories", categoryService.getAll());
+//        m.addAttribute("listProv", locationService.getProvice("Argentina"));
+//
+//        m.addAttribute("listaFiltros", filtros);
+//
+//        return "showCourses";
+//    }
 
-    
-    
-    
     @RequestMapping(value = "/describeCourse")
     public String describeCourse(Model m, @RequestParam Long id) {
         m.addAttribute("course", courseService.get(id));

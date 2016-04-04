@@ -6,6 +6,8 @@
 package com.company.tucurso.service;
 
 import com.company.tucurso.entity.Course;
+import com.company.tucurso.entity.Search;
+import com.company.tucurso.entity.SearchFilter;
 import java.util.List;
 
 /**
@@ -13,6 +15,6 @@ import java.util.List;
  * @author fedec
  */
 public interface CourseService extends GenericService<Course, Long>{
-    public List getCourseFilter(Long categoryId);
+    public List getCourseFilter(Search searchFilter);
 
 }

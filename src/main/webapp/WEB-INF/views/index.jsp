@@ -10,8 +10,9 @@
         <style type="text/css"><%@include file="/resources/css/styles.css" %></style>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9aVV02GeAnrhc7_LHXENBE571xUFZtWQ&libraries=places"></script>
 
-        <title>JSP Page</title>
+        <title>Tu curso</title>
     </head>
     <body>
 
@@ -45,7 +46,7 @@
                 });
                 function mostrarProv(data) {
                     $("#prov").find('option').remove();
-                    $("#prov").append('<option value="-">Seleccione provincia</option>');
+                    $("#prov").append('<option value="-">All</option>');
                     for (var i = 0, len = data.length; i < len; ++i) {
                         var aux = data[i];
                         $("#prov").append("<option value=\"" + aux + "\">" + aux + "</option>");
@@ -85,7 +86,7 @@
                 });
 
                 function mostrarCiudad(data) {
-                $("#ciudad").find('option').remove();
+                    $("#ciudad").find('option').remove();
                     for (var i = 0, len = data.length; i < len; ++i) {
                         var aux = data[i];
                         $("#ciudad").append("<option value=\"" + aux + "\">" + aux + "</option>");
@@ -98,7 +99,7 @@
 
 
 
-        <div class="container-fluid" >
+        <div class="container-fluid" style="background-image: url('http://www.dreamtemplate.com/dreamcodes/bg_images/color/c1.jpg'); height: 100%">
 
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
@@ -112,34 +113,81 @@
 
                 </div>
 
-                <div class="col-md-10" id="contenido-ppal" >
+                <div class="col-md-10" >
 
 
                     <br/>
 
-
-
-
-                    <h2>Ingrese el curso que desea buscar:</h2>
-
-                    <div class="input-group">
-                        <input type="text" class="form-control SearchBar" placeholder="Java EE, La Plata">
-                        <span class="input-group-btn">
-                            <button class="btn btn-defaul SearchButton" type="button">
-                                <span class=" glyphicon glyphicon-search SearchIcon" ></span>
-                            </button>
-                        </span>
-                    </div>
-                    <a href=""><h4>Busqueda avanzada</h4></a>
                     <div class="row">
-                        <div class="col-md-4"> </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
 
-                            <f:form  action="${pageContext.request.contextPath}/course/showCourses/" role="from">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                        <div class="col-md-2"></div>
+
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-3"> </div>
+                        <div class="col-md-6">
+
+                            <div class="row" style="background-color: whitesmoke">
+                                <f:form  action="${pageContext.request.contextPath}/course/showCourses/" role="form">
+                                    <div class="col-md-5">   
+                                        <div class="form-group">
+                                            <label> <h3>¿Que curso buscas?</h3> </label>
+                                            <input type="text" name="seachTxt" class="form-control SearchBar" placeholder="Nombre, Categoria">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group" >
+                                            <label><h3> ¿Donde?</h3> </label>
+                                            <input  id="pac-input" class="form-control" type="text" name="location" placeholder="Ciudad o Provincia">  
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2"><br/><br/><br/>  <input type="submit" class="btn btn-success btn-md" value="Buscar"/></div>
+                                    </f:form>
+
+                            </div>
+
+
+
+
+
+                            <%-- 
+                            <f:form  action="${pageContext.request.contextPath}/course/showCourses/" role="form">
 
                                 <div class="form-group">
-                                    <label for="idCat">Categoria: </label><br/>
-                                    <select name="idCat" id="idCat" class="form-control">
+
+                                    <input type="text" name="seachTxt" class="form-control SearchBar" placeholder="Java EE, La Plata">
+
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category">Categoria: </label><br/>
+                                    <select name="category" id="category" class="form-control">
+                                        <option value="">All</option>
                                         <c:forEach items="${categories}" var="cat">
                                             <option value="${cat.category_ID}">${cat.getName()}</option>
                                         </c:forEach>
@@ -148,11 +196,11 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-4">       
+                                    <div class="col-md-4">     
                                         <div class="form-group">
                                             <label for="pais">Pais: </label><br/>
                                             <select name="pais" id="pais" class="form-control">
-                                                <option value="-">Seleccione pais</option>
+                                                <option value="-">All</option>
                                                 <c:forEach items="${pais}" var="pais">
                                                     <option value ="${pais}">${pais}</option>
                                                 </c:forEach>
@@ -170,7 +218,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="ciudad">Ciudad: </label><br/>
-                                            <select name="ciudad" id="ciudad" class="form-control" disabled="disabled">
+                                            <select name="city" id="ciudad" class="form-control" disabled="disabled">
                                                 <option value="-" disabled="disabled"></option>
                                             </select>
                                         </div>  
@@ -180,59 +228,60 @@
 
                                 <input type="submit" class="btn btn-success" value="Buscar">
                             </f:form>
+                            
+                            --%>
+
+
                         </div>
-                        <div class="col-md-4"> </div>
+                        <div class="col-md-3"> </div>
 
                     </div>
 
 
                     <br><br>
 
-<!--                    <div class="row">
-                        <h2>Cursos destacados</h2>
-                        <div class="col-md-3" >
-                            <div id="cursoDestacado">
-                                <a>Desarrollo de aplicaciones web en Java</a>
-                                <p>Comunidad IT</p>
-                                <p>Duración: 3 meses</p>
-                                <p>Precio: Gratis!</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3" >
-                            <div id="cursoDestacado">
-                                <a>Desarrollo de aplicaciones web en Java</a>
-                                <p>Comunidad IT</p>
-                                <p>Duración: 3 meses</p>
-                                <p>Precio: Gratis!</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3" >
-                            <div id="cursoDestacado">
-                                <a>Desarrollo de aplicaciones web en Java</a>
-                                <p>Comunidad IT</p>
-                                <p>Duración: 3 meses</p>
-                                <p>Precio: Gratis!</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3" >
-                            <div id="cursoDestacado">
-                                <a>Desarrollo de aplicaciones web en Java</a>
-                                <p>Comunidad IT</p>
-                                <p>Duración: 3 meses</p>
-                                <p>Precio: Gratis!</p>
-                            </div>
-                        </div>
-
-
-
-                    </div>-->
+                    <!--                   <div class="row">
+                                            <h2>Cursos destacados</h2>
+                                            <div class="col-md-3" >
+                                                <div id="cursoDestacado">
+                                                    <a>Desarrollo de aplicaciones web en Java</a>
+                                                    <p>Comunidad IT</p>
+                                                    <p>Duración: 3 meses</p>
+                                                    <p>Precio: Gratis!</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" >
+                                                <div id="cursoDestacado">
+                                                    <a>Desarrollo de aplicaciones web en Java</a>
+                                                    <p>Comunidad IT</p>
+                                                    <p>Duración: 3 meses</p>
+                                                    <p>Precio: Gratis!</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" >
+                                                <div id="cursoDestacado">
+                                                    <a>Desarrollo de aplicaciones web en Java</a>
+                                                    <p>Comunidad IT</p>
+                                                    <p>Duración: 3 meses</p>
+                                                    <p>Precio: Gratis!</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" >
+                                                <div id="cursoDestacado">
+                                                    <a>Desarrollo de aplicaciones web en Java</a>
+                                                    <p>Comunidad IT</p>
+                                                    <p>Duración: 3 meses</p>
+                                                    <p>Precio: Gratis!</p>
+                                                </div>
+                                            </div>
+                    
+                    
+                    
+                                        </div>-->
 
 
                     <br><br>
-                    <a href="${pageContext.request.contextPath}/course/showCourses">Ver Cursos</a>
-                    <a href="${pageContext.request.contextPath}/organization/addOrganization">Agregar Organizacion</a>
-                    <a href="${pageContext.request.contextPath}/course/addCourse">Agregar Curso</a>
-                    <a href="${pageContext.request.contextPath}/category/addCategory">Agregar Categoria</a>
+                    
                 </div>
 
 
@@ -255,6 +304,10 @@
 
 
 
+        <script>
+            var input = (document.getElementById('pac-input'));
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        </script>
 
 
     </body>
