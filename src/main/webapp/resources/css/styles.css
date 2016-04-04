@@ -4,11 +4,11 @@ html, body {
 }
 
 #barraSuperior{
-    background-color: #037E8C;
+    background-color: forestgreen;
 }
 
 #barraSuperior2{
-    background-color: #024959;
+    background-color: dimgray;
     color: white;
     text-align: right;
 }
