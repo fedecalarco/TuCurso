@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #barraSuperior{
@@ -16,6 +17,11 @@ html, body {
 #contenido-ppal{
     text-align: center;
     
+    
+}
+
+#contenido-ppal2{
+    text-align: left;
     
 }
 

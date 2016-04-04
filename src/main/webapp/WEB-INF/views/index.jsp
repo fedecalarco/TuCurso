@@ -99,7 +99,7 @@
 
 
 
-        <div class="container-fluid" style="background-image: url('http://www.twitterevolutions.com/bgs/blackboard-twitter-background.jpg');background-size: 100% 100%; height: 100%">
+        <div class="container-fluid" style="background-size: 100% 100%; height: 100%">
 
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
