@@ -70,14 +70,14 @@
 
                     <div class="row" style="background-color: white; margin-bottom: 20px; padding: 0px ">
                         <div class="col-md-2" style="padding: 0px;margin: 0px;text-align: center">
-                            <image src="https://cdn2.iconfinder.com/data/icons/metro-ui-icon-set/512/Java.png" class="img"  height="200" width="200" />
+                            <image src="https://cdn2.iconfinder.com/data/icons/metro-ui-icon-set/512/Java.png" class="img-responsive"  height="200" width="200" />
                         </div>
                         <div class="col-md-8">
                             <h2><b>${course.getName()}</b></h2>
                             <a href="${pageContext.request.contextPath}/organization/showOrganization?id=${course.getOrganization().getOrganization_ID()}"><h4>${course.getOrganization().getName()}</h4></a>
                             <p>Aprende a utilizar uno de los frameworks de Java más demandados del mercado. Domina la tecnología Spring Java Framework orientada a aspectos con MVC y comienza a desarrollar aplicaciones corporativas de forma escalable, robusta y segura. </p>
                         </div>
-                        <div class="col-md-2"><br/><br/><button class="btn btn-success btn-lg">Inscribirme!</button></div>
+                            <div class="col-md-2" style="padding: 10px"><br/><br/><button class="btn btn-success btn-lg">Inscribirme!</button></div>
 
                     </div>
 

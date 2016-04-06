@@ -12,7 +12,7 @@
     </head>
     <body>
 
-        <div class="container-fluid" style="background-color: whitesmoke;height: 100%" >
+        <div class="container-fluid" style="background-color: whitesmoke" >
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>

@@ -146,8 +146,8 @@
 
 
                     <div class="row">
-                        <div class="col-md-3"> </div>
-                        <div class="col-md-6">
+                        <div class="col-md-2"> </div>
+                        <div class="col-md-8">
 
                             <div class="row" style="background-color: whitesmoke">
                                 <f:form  action="${pageContext.request.contextPath}/course/showCourses/" role="form">
@@ -233,7 +233,7 @@
 
 
                         </div>
-                        <div class="col-md-3"> </div>
+                        <div class="col-md-2"> </div>
 
                     </div>
 
