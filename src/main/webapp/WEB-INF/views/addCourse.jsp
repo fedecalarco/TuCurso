@@ -48,14 +48,14 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
+<%--                            <div class="form-group">
                                 <label for="idOrg">Organizacion: </label><br/>
                                 <select name="idOrg" id="idOrg" class="form-control">
-                                    <c:forEach items="${organizations}" var="org">
                                         <option value="${org.organization_ID}">${org.getName()}</option>
-                                    </c:forEach>
                                 </select>
-                            </div>
+                            </div>--%>
+                                
+                                <input type="hidden" name="idOrg" value="${organizations.organization_ID}"/>
 
                             <div class="form-group">
                                 <label for="description">Description: </label><br/>

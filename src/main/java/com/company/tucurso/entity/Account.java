@@ -24,41 +24,24 @@ public abstract class Account implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long customer_ID;
-    private String user;
-    private String password;
+    private long id;
     private String email;
+    private String password;
 
     public Account() {
     }
 
-    public Account(String user, String password, String email) {
-        this.user = user;
-        this.password = password;
+    public Account(String email, String password) {
         this.email = email;
-    }
-
-    public long getCustomer_ID() {
-        return customer_ID;
-    }
-
-//    public void setCustomer_ID(long customer_ID) {
-//        this.customer_ID = customer_ID;
-//    }
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -69,4 +52,16 @@ public abstract class Account implements Serializable {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    
+   
+    
 }

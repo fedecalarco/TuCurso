@@ -10,6 +10,6 @@
         <a href=""><img src="http://www.enriquegranados.mx/images/tw.png" height="25" width="25"/></a>
         <br/>@TuCurso.com.ar
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">        <a href="${pageContext.request.contextPath}/organization/register">Registrar Organizacion</a></div></div>
 
 </div>

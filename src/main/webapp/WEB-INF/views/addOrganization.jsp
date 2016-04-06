@@ -18,14 +18,17 @@
         <h1>Agregar Organizacion:</h1>
         <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data" acceptCharset="utf-8">
 
+            
+            <input type="hidden" name="organization_ID" value="${org.getOrganization_ID()}"/>
+            
             <div class="form-group">
                 <label for="name">Nombre: </label><br/>
-                <input type="text" name="name" id="name" class="form-control" value="" maxlength="50" required autofocus/>
+                <input type="text" name="name" id="name" class="form-control" value="${org.getName()}" maxlength="50" required autofocus/>
             </div>
 
             <div class="form-group">
                 <label for="description">Descripcion:</label>
-                <textarea name="description" class="form-control" rows="5" id="description"></textarea>
+                <textarea name="description" class="form-control" rows="5" id="description" >${org.getDescription()}</textarea>
             </div>
 
             <div class="form-group">

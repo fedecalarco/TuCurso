@@ -5,54 +5,62 @@
  */
 package com.company.tucurso.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author fedec
  */
-public class Provider extends Customer {
+@Entity
+public class Provider extends Account {
 
-    private long provider_ID;
-    private String name;
-    private String description;
-    private String webpage;
+    private String nameOrganization;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Organization organizationProfile;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Course> courses = new ArrayList<Course>();
 
-   
-    public Provider(String name, String description, String county, String province, String city, String phone, String user, String password, String email) {
-        super(county, province, city, phone, user, password, email);
-        this.name = name;
-        this.description = description;
+    public Provider() {
     }
 
-    public long getProvider_ID() {
-        return provider_ID;
+    public Provider(String email, String password, String nameOrganization, Organization organizationProfile) {
+        super(email, password);
+        this.nameOrganization = nameOrganization;
+        this.organizationProfile = organizationProfile;
+    }
+    
+
+    public String getNameOrganization() {
+        return nameOrganization;
     }
 
-//    public void setProvider_ID(long provider_ID) {
-//        this.provider_ID = provider_ID;
-//    }
-
-    public String getName() {
-        return name;
+    public void setNameOrganization(String nameOrganization) {
+        this.nameOrganization = nameOrganization;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Organization getOrganizationProfile() {
+        return organizationProfile;
     }
 
-    public String getDescription() {
-        return description;
+    public void setOrganizationProfile(Organization organizationProfile) {
+        this.organizationProfile = organizationProfile;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public String getWebpage() {
-        return webpage;
-    }
-
-    public void setWebpage(String webpage) {
-        this.webpage = webpage;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 
 }

@@ -26,9 +26,9 @@ public class UserController {
     @RequestMapping(value = "/registrar", method = RequestMethod.POST)
     public String registerUser() {
 
-        User u = new User("Federico", "Calarco", "Argentina", "Chubut", "Puerto Madryn", "2804722352", "fedecalarco", "123123", "fede.calarco@hotmail.com");
+//        User u = new User("Federico", "Calarco", "Argentina", "Chubut", "Puerto Madryn", "2804722352", "fedecalarco", "123123", "fede.calarco@hotmail.com");
 
-        userService.add(u);
+//        userService.add(u);
         
         return "index";
     }

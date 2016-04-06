@@ -44,10 +44,10 @@ public class CourseController {
     LocationService locationService;
 
     @RequestMapping(value = "/addCourse", method = RequestMethod.GET)
-    public String addCourse(Model m) {
+    public String addCourse(Model m, @RequestParam long organizationId) {
 
         m.addAttribute("categories", categoryService.getAll());
-        m.addAttribute("organizations", organizationService.getAll());
+        m.addAttribute("organizations", organizationService.get(organizationId));
         return "addCourse";
     }
 

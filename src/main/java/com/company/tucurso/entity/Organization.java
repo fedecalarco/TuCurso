@@ -23,6 +23,7 @@ public class Organization implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long organization_ID;
+    
     private String name;
     @Lob
     private String description;
@@ -45,9 +46,9 @@ public class Organization implements Serializable {
         return organization_ID;
     }
 
-//    public void setOrganization_ID(long organization_ID) {
-//        this.organization_ID = organization_ID;
-//    }
+    public void setOrganization_ID(long organization_ID) {
+        this.organization_ID = organization_ID;
+    }
 
     public String getName() {
         return name;
