@@ -7,8 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <style type="text/css"><%@include file="/resources/css/styles.css" %></style>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <title>JSP Page</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+        <title>Tu Curso</title>
     </head>
     <body>
 
@@ -19,14 +19,15 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8" style="background-color: white; margin: 20px">
+
+
+                    <h1 style="text-align: center"> ${session_user_provider.getNameOrganization()}</h1><hr>
+
                     <a href="${pageContext.request.contextPath}/organization/updateOrganization?id=${provider.getOrganizationProfile().getOrganization_ID()}">Actualizar perfil</a>
-                    <a href="${pageContext.request.contextPath}/course/addCourse?organizationId=${provider.getId()}">Nuevo curso</a>
-                    
-                    <h1> ${provider.getNameOrganization()}</h1>
-                    
-                    <h3>Lista de cursos</h3>
-                    <hr/>
-                    
+                    <a href="${pageContext.request.contextPath}/course/addCourse">Nuevo curso</a>
+
+                    <h3>Mis cursos</h3>
+
                     <div>
                         <table class="table table-hover" border="0">
                             <tr>

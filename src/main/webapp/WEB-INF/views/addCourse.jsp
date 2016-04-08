@@ -19,24 +19,24 @@
     </head>
     <body>
 
-        <div class="container-fluid" >
+        <div class="container-fluid" style="background-color: whitesmoke">
             <header>
                 <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
             <div class="row">
 
-                <div class="col-md-1"></div>
+                <div class="col-md-2"></div>
 
-                <div class="col-md-10" id="contenido-ppal" >
+                <div class="col-md-8"  style="background-color: white;margin: 20px ">
 
-                    <h1>Registre su curso:</h1>
+                    <h1>Registre su curso:</h1><hr>
                     <div>
 
                         <f:form action="${pageContext.request.contextPath}/course/addCourse" modelAttribute="Course" role="form">
 
                             <div class="form-group">
                                 <label for="name">Nombre: </label><br/>
-                                <input type="text" name="name" id="name" class="form-control" required autofocus/>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Taller de guitarra" required autofocus/>
                             </div>
 
                             <div class="form-group">
@@ -46,73 +46,74 @@
                                         <option value="${cat.category_ID}">${cat.getName()}</option>
                                     </c:forEach>
                                 </select>
-                            </div>
+                                <a href="${pageContext.request.contextPath}/category/addCategory">Agregar Categoria</a>
+                        </div>
 
-<%--                            <div class="form-group">
-                                <label for="idOrg">Organizacion: </label><br/>
-                                <select name="idOrg" id="idOrg" class="form-control">
-                                        <option value="${org.organization_ID}">${org.getName()}</option>
-                                </select>
-                            </div>--%>
-                                
-                                <input type="hidden" name="idOrg" value="${organizations.organization_ID}"/>
+                        <%--                            <div class="form-group">
+                                                        <label for="idOrg">Organizacion: </label><br/>
+                                                        <select name="idOrg" id="idOrg" class="form-control">
+                                                                <option value="${org.organization_ID}">${org.getName()}</option>
+                                                        </select>
+                                                    </div>--%>
 
-                            <div class="form-group">
-                                <label for="description">Description: </label><br/>
-                                <textarea name="description" class="form-control" rows="5" id="description" placeholder="Agregue una descripcion del curso" required></textarea>
-                            </div>
+                        <input type="hidden" name="idOrg" value="${session_user_provider.id}"/>
 
-                            <div class="form-group">
-                                <label for="location">Lugar: </label><br/>
-                                <input id="pac-input" class="form-control" type="text" name="location" placeholder="Ingrese la ubicacion" required="">
-                            </div>
+                        <div class="form-group">
+                            <label for="description">Description: </label><br/>
+                            <textarea name="description" class="form-control" rows="5" id="description" placeholder="Agregue una descripcion del curso" required></textarea>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="price">Price: </label><br/>
-                                <input type="text" name="price" id="price" value="0.0" class="form-control" required/>
-                            </div> 
+                        <div class="form-group">
+                            <label for="location">Lugar: </label><br/>
+                            <input id="pac-input" class="form-control" type="text" name="location" placeholder="Ingrese la ubicacion" required="">
+                        </div>
 
-                            <div class="form-group">
-                                <label for="duration">Duracion: </label><br/>
-                                <input type="text" name="duration" id="duration" value="" class="form-control" required/>
-                            </div>
+                        <div class="form-group">
+                            <label for="price">Precio: </label><br/>
+                            <input type="text" name="price" id="price" value="0.0" class="form-control" required/>
+                        </div> 
 
-                            <div class="form-group">
-                                <label for="date">Fecha de inicio: </label><br/>
-                                <input type="date" name="date" id="date" value="" class="form-control" required />
-                            </div>
+                        <div class="form-group">
+                            <label for="duration">Duracion: </label><br/>
+                            <input type="text" name="duration" id="duration" value="" class="form-control" placeholder="3 meses" required/>
+                        </div>
 
-
-
-                            <div class="form-group">
-                                <a href="${pageContext.request.contextPath}/" class="btn btn-danger" role="button">Cancelar</a> 
-                                <input type="submit" id="bEnviar" class="btn btn-success " value="Guardar"/>
-                            </div>
-                        </f:form>
+                        <div class="form-group">
+                            <label for="date">Fecha de inicio: </label><br/>
+                            <input type="date" name="date" id="date" class="form-control" required />
+                        </div>
 
 
 
-                    </div>
+                        <div class="form-group" style="text-align: center">
+                            <a href="${pageContext.request.contextPath}/centroEducativo/" class="btn btn-danger" role="button">Cancelar</a> 
+                            <input type="submit" id="bEnviar" class="btn btn-success " value="Guardar"/>
+                        </div>
+                    </f:form>
+
+
 
                 </div>
 
-                <div class="col-md-1"></div>
-
             </div>
 
-            <footer class="footer">
-                <%@include file="/resources/maquetacion/footer.jsp" %>
-            </footer>
+            <div class="col-md-2"></div>
 
         </div>
 
+        <footer class="footer">
+            <%@include file="/resources/maquetacion/footer.jsp" %>
+        </footer>
+
+    </div>
 
 
 
-        <script>
-            var input = (document.getElementById('pac-input'));
-            var autocomplete = new google.maps.places.Autocomplete(input);
-        </script>
 
-    </body>
+    <script>
+        var input = (document.getElementById('pac-input'));
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    </script>
+
+</body>
 </html>

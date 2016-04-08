@@ -33,7 +33,7 @@ public class CategoryController {
     public String addCategoryPost(@ModelAttribute(value = "Category") Category category) {
 
         categoryService.add(category);
-        return "index";
+        return "redirect:/course/addCourse";
     }
 
 }

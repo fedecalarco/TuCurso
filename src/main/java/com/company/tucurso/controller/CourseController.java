@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 /**
  *
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 @RequestMapping(value = "/course")
+@SessionAttributes({"session_user_provider"})
 public class CourseController {
 
     @Autowired(required = true)
@@ -44,10 +46,10 @@ public class CourseController {
     LocationService locationService;
 
     @RequestMapping(value = "/addCourse", method = RequestMethod.GET)
-    public String addCourse(Model m, @RequestParam long organizationId) {
+    public String addCourse(Model m) {
 
         m.addAttribute("categories", categoryService.getAll());
-        m.addAttribute("organizations", organizationService.get(organizationId));
+   //     m.addAttribute("organizations", organizationService.get(organizationId));
         return "addCourse";
     }
 
@@ -59,7 +61,7 @@ public class CourseController {
 
         courseService.add(course);
 
-        return "index";
+        return "redirect:/centroEducativo/";
     }
 
     @RequestMapping(value = "/showAllCourses")

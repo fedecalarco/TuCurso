@@ -20,7 +20,7 @@
         <input type="text" name="name" id="name" value="" class="form-control" required autofocus/><br/><br/>
 
         <br/>
-        <a href="${pageContext.request.contextPath}/" class="btn btn-warning btn-lg" role="button">Cancelar</a> 
+        <a href="${pageContext.request.contextPath}/course/addCourse" class="btn btn-warning btn-lg" role="button">Cancelar</a> 
         <input type="submit" id="bEnviar" class="btn btn-success btn-lg" value="Guardar"/>
 
     </f:form>

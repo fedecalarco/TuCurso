@@ -27,10 +27,19 @@
                     <h3><b>Por favor inicia sesión.</b></h3><hr/>
                     <a href="${pageContext.request.contextPath}/organization/register">Registrar</a>
                     <p style="color: red">${ok}</p>
-                    <f:form action="${pageContext.request.contextPath}/login" modelAttribute="Account" >
-                        <input type="email" name="email" placeholder="email"/><br/>
+                    <c:if test="${param.error != null}">
+                        <p style="color:red">Invalid username or password.</p>
+                    </c:if>
+
+                    <c:if test="${param.logout != null}">
+                        <p style="color:red">You have been logged out.</p>
+                    </c:if>
+                        
+                    <f:form action="login" method="POST" >
+                        <input type="email" name="username" placeholder="email"/><br/>
                         <input type="password" name="password" placeholder="password"/><br/><br/>
                         
+                        <a href="${pageContext.request.contextPath}/" class="btn btn-danger" role="button">Cancelar</a> 
                         <input type="submit" class="btn btn-success btn-md" value="Entrar"/>
                     </f:form>
                 </div>

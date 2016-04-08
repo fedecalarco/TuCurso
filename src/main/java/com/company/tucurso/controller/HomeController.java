@@ -5,18 +5,19 @@
  */
 package com.company.tucurso.controller;
 
-import com.company.tucurso.entity.Account;
 import com.company.tucurso.entity.Provider;
 import com.company.tucurso.service.CategoryService;
 import com.company.tucurso.service.CourseService;
 import com.company.tucurso.service.OrganizationService;
 import com.company.tucurso.service.ProviderService;
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,27 +34,16 @@ public class HomeController {
 
     @Autowired(required = true)
     ProviderService providerService;
-    
+
     @Autowired(required = true)
     CourseService courseService;
-    
+
     @Autowired(required = true)
     OrganizationService organizationService;
-    
 
     @RequestMapping(value = "/")
     public String home(Model model) {
-
-        model.addAttribute("categories", categoryService.getAll());
-        model.addAttribute("pais", paises());
         return "index";
-    }
-
-    private List<String> paises() {
-        List<String> lstCiudades = new ArrayList<String>();
-        lstCiudades.add("Argentina");
-        lstCiudades.add("Uruguay");
-        return lstCiudades;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -83,4 +73,20 @@ public class HomeController {
         return "login";
 
     }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String admin() {
+        return "provider_Menu";
+    }
+    
+    
+        @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+    }
+
 }

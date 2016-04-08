@@ -9,9 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <style type="text/css"><%@include file="/resources/css/styles.css" %></style>
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCryZDZVslynv3KBsJW9D4A_70QplbS3q4&callback=initMap"
-        async defer></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCryZDZVslynv3KBsJW9D4A_70QplbS3q4&callback=initMap" async defer></script>
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <title>JSP Page</title>
@@ -77,7 +76,7 @@
                             <a href="${pageContext.request.contextPath}/organization/showOrganization?id=${course.getOrganization().getOrganization_ID()}"><h4>${course.getOrganization().getName()}</h4></a>
                             <p>Aprende a utilizar uno de los frameworks de Java más demandados del mercado. Domina la tecnología Spring Java Framework orientada a aspectos con MVC y comienza a desarrollar aplicaciones corporativas de forma escalable, robusta y segura. </p>
                         </div>
-                            <div class="col-md-2" style="padding: 10px"><br/><br/><button class="btn btn-success btn-lg">Inscribirme!</button></div>
+                        <div class="col-md-2" style="padding: 10px"><br/><br/><button class="btn btn-success btn-lg">Inscribirme!</button></div>
 
                     </div>
 
@@ -171,7 +170,7 @@
                                     <p> &#x2022; Lugar: ${course.getLocation()}</p>
                                     <input id="address" type="text" hidden="" value="${course.getLocation()}"/></div>
                             </div> 
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="background-color: white">Calificaciones</div>
                                 <div class="panel-body" > 
@@ -179,7 +178,7 @@
                                     <img  height="20px" width="20px" src="http://www.clker.com/cliparts/R/i/A/t/X/O/star-orange-md.png"/>   
                                     <img  height="20px" width="20px" src="http://www.clker.com/cliparts/R/i/A/t/X/O/star-orange-md.png"/>   
                                     <img  height="20px" width="20px" src="http://www.clker.com/cliparts/R/i/A/t/X/O/star-orange-md.png"/>   
-                                
+
                                 </div> 
                             </div>
 
@@ -252,10 +251,10 @@
                 });
                 var geocoder = new google.maps.Geocoder();
 
-    //                document.getElementById('submit').addEventListener('click', function () {
-    //                  geocodeAddress(geocoder, map);
-    //
-    //                });
+                //                document.getElementById('submit').addEventListener('click', function () {
+                //                  geocodeAddress(geocoder, map);
+                //
+                //                });
                 geocodeAddress(geocoder, map);
             }
 

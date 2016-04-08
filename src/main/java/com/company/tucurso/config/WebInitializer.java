@@ -5,12 +5,14 @@
  */
 package com.company.tucurso.config;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
  *
  * @author fede
  */
+@Order(value=1)
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
