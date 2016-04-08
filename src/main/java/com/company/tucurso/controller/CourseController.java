@@ -78,6 +78,9 @@ public class CourseController {
             @ModelAttribute(value = "searchFilter") Search searchFilter) {
 
         // Mostrar contenido en el menu izquierdo ( categoriesLst - provLst)
+        /**
+         * sadas 
+         */
         m.addAttribute("listCategories", categoryService.getAll());
         m.addAttribute("listProv", locationService.getProvice("Argentina"));
 

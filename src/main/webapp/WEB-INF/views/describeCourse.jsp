@@ -76,7 +76,10 @@
                             <a href="${pageContext.request.contextPath}/organization/showOrganization?id=${course.getOrganization().getOrganization_ID()}"><h4>${course.getOrganization().getName()}</h4></a>
                             <p>Aprende a utilizar uno de los frameworks de Java más demandados del mercado. Domina la tecnología Spring Java Framework orientada a aspectos con MVC y comienza a desarrollar aplicaciones corporativas de forma escalable, robusta y segura. </p>
                         </div>
-                        <div class="col-md-2" style="padding: 10px"><br/><br/><button class="btn btn-success btn-lg">Inscribirme!</button></div>
+                        <div class="col-md-2" style="padding: 10px">
+                            <br/><br/>
+                            <a href="${pageContext.request.contextPath}/user/register" class="btn btn-success btn-lg">Inscribirme!</a>
+                        </div>
 
                     </div>
 
