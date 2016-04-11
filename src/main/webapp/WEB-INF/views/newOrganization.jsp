@@ -52,8 +52,8 @@
 
                         <br/>
                         <div style="text-align: center">
-                            <a href="${pageContext.request.contextPath}/" class="btn btn-danger btn-lg" role="button">Cancelar</a> 
-                            <input type="submit" id="bEnviar" class="btn btn-success btn-lg" value="Registrar"/>
+                            <a href="${pageContext.request.contextPath}/" class="btn btn-danger btn-md" role="button">Cancelar</a> 
+                            <input type="submit" id="bEnviar" class="btn btn-success btn-md" value="Registrar"/>
 
                         </div>
 

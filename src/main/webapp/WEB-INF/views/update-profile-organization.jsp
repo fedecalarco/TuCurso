@@ -6,6 +6,7 @@
 
 <%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
 <%@include file="/resources/maquetacion/taglibs.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,19 +17,19 @@
     </head>
     <body>
         <h1>Agregar Organizacion:</h1>
-        <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" enctype="multipart/form-data" acceptCharset="utf-8">
+        <f:form action="${pageContext.request.contextPath}/organization/addOrganization" modelAttribute="Organization" role="form" >//enctype="multipart/form-data" acceptCharset="utf-8"
 
-            
-            <input type="hidden" name="organization_ID" value="${org.getOrganization_ID()}"/>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
+            <input type="hidden" name="organization_ID" value="${session_user_provider.getOrganizationProfile().getOrganization_ID()}"/>
             
             <div class="form-group">
                 <label for="name">Nombre: </label><br/>
-                <input type="text" name="name" id="name" class="form-control" value="${org.getName()}" maxlength="50" required autofocus/>
+                <input type="text" name="name" id="name" class="form-control" value="${session_user_provider.getNameOrganization()}" maxlength="50" required autofocus/>
             </div>
 
             <div class="form-group">
                 <label for="description">Descripcion:</label>
-                <textarea name="description" class="form-control" rows="5" id="description" >${org.getDescription()}</textarea>
+                <textarea name="description" class="form-control" rows="5" id="description" >${session_user_provider.getOrganizationProfile().getDescription()}</textarea>
             </div>
 
             <div class="form-group">

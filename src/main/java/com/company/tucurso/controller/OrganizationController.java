@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -29,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 @RequestMapping("/organization")
+@SessionAttributes({"session_user_provider"})
 public class OrganizationController {
 
     @Autowired(required = true)
@@ -71,10 +73,10 @@ public class OrganizationController {
     }
 
     @RequestMapping(value = "/updateOrganization", method = GET)
-    public String UpdateOrganization(@RequestParam long id, Model m) {
+    public String UpdateOrganization() {
         
-        m.addAttribute("org", organizationService.get(id));
-        return "addOrganization";
+
+        return "update-profile-organization";
     }
 
     @RequestMapping(value = "/addOrganization", method = RequestMethod.POST)

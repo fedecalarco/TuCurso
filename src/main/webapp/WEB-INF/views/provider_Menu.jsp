@@ -23,7 +23,7 @@
 
                     <h1 style="text-align: center"> ${session_user_provider.getNameOrganization()}</h1><hr>
 
-                    <a href="${pageContext.request.contextPath}/organization/updateOrganization?id=${provider.getOrganizationProfile().getOrganization_ID()}">Actualizar perfil</a>
+                    <a href="${pageContext.request.contextPath}/organization/updateOrganization">Actualizar perfil</a>
                     <a href="${pageContext.request.contextPath}/course/addCourse">Nuevo curso</a>
 
                     <h3>Mis cursos</h3>
