@@ -52,7 +52,7 @@ public abstract class GenericDAOImpl<E, K extends Serializable>
 
     @Override
     public void update(E entity) {
-        currentSession().saveOrUpdate(entity);
+        currentSession().update(entity);
     }
 
     @Override

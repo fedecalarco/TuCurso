@@ -25,9 +25,9 @@ public class Course implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long couse_ID;
     private String name;
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne//(cascade = {CascadeType.ALL})
     private Category category;
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne//(cascade = {CascadeType.ALL})
     private Organization organization;
     @Lob
     private String description;

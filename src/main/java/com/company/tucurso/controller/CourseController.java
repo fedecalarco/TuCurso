@@ -12,8 +12,10 @@ import com.company.tucurso.service.CategoryService;
 import com.company.tucurso.service.CourseService;
 import com.company.tucurso.service.LocationService;
 import com.company.tucurso.service.OrganizationService;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,7 +51,7 @@ public class CourseController {
     public String addCourse(Model m) {
 
         m.addAttribute("categories", categoryService.getAll());
-   //     m.addAttribute("organizations", organizationService.get(organizationId));
+        //     m.addAttribute("organizations", organizationService.get(organizationId));
         return "addCourse";
     }
 
@@ -58,8 +60,8 @@ public class CourseController {
 
         course.setOrganization(organizationService.get(idOrg));
         course.setCategory(categoryService.get(idCat));
-        
-        System.out.println(course.getDescriptionShort()+"9999999999999999999999999999");
+
+        System.out.println(course.getDescriptionShort() + "9999999999999999999999999999");
 
         courseService.add(course);
 
@@ -81,7 +83,7 @@ public class CourseController {
 
         // Mostrar contenido en el menu izquierdo ( categoriesLst - provLst)
         /**
-         * sadas 
+         * sadas
          */
         m.addAttribute("listCategories", categoryService.getAll());
         m.addAttribute("listProv", locationService.getProvice("Argentina"));
@@ -90,9 +92,9 @@ public class CourseController {
         if (!"".equals(searchFilter.getSeachTxt()) && !"".equals(searchFilter.getLocation())) {
             filtros.add(searchFilter.getSeachTxt());
             filtros.add(searchFilter.getLocation());
-        }else if(!"".equals(searchFilter.getSeachTxt())){
+        } else if (!"".equals(searchFilter.getSeachTxt())) {
             filtros.add(searchFilter.getSeachTxt());
-        }else if(!"".equals(searchFilter.getLocation())){
+        } else if (!"".equals(searchFilter.getLocation())) {
             filtros.add(searchFilter.getLocation());
         }
 
@@ -133,4 +135,49 @@ public class CourseController {
         m.addAttribute("course", courseService.get(id));
         return "describeCourse";
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String updateCourse(Model m, @RequestParam Long courseId) {
+
+        m.addAttribute("categories", categoryService.getAll());
+        m.addAttribute("course", courseService.get(courseId));
+
+        return "updateCourse";
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateCourse(@ModelAttribute(value = "Course") Course course) {
+
+        Course updateCourse = courseService.get(course.getCouse_ID());
+        
+        
+        System.out.println("--->UPDATE COURSE: " + updateCourse.getName());
+        
+        
+        updateCourse.setName(course.getName());
+        
+        updateCourse.setCategory(course.getCategory());
+        updateCourse.setContent(course.getContent());
+        updateCourse.setDate(course.getDate());
+        updateCourse.setDescription(course.getDescription());
+        updateCourse.setDescriptionShort(course.getDescriptionShort());
+        updateCourse.setDuration(course.getDuration());
+        updateCourse.setLocation(course.getLocation());
+        updateCourse.setPrice(course.getPrice());
+
+        courseService.update(updateCourse);
+
+        return "redirect:/centroEducativo/";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteCourse(@RequestParam Long courseId) {
+
+        System.out.println("0000000-> " + courseId);
+        Course course = courseService.get(courseId);
+        System.out.println(course.getName());
+        courseService.remove(course);
+        return "redirect:/centroEducativo/";
+    }
+
 }

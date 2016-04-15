@@ -39,6 +39,7 @@
                                 <th>Duración</th>
                                 <th>Fecha inicio</th>
                                 <th>Lugar</th>
+                                <th>Administrar</th>
                             </tr>
                             <c:forEach items="${lstCourses}" var="p">
                                 <tr>
@@ -50,7 +51,9 @@
                                     <td>${p.getDuration()}</td>
                                     <td>${p.getDate()}</td>
                                     <td>${p.getLocation()}</td>
-
+                                    <td><a href="${pageContext.request.contextPath}/course/delete?courseId=${p.getCouse_ID()}">Borrar</a> 
+                                        <a href="${pageContext.request.contextPath}/course/update?courseId=${p.getCouse_ID()}">Actualizar</a>
+                                    </td>
 
                                 </tr>
                             </c:forEach>
