@@ -31,6 +31,9 @@ public class Course implements Serializable {
     private Organization organization;
     @Lob
     private String description;
+    private String descriptionShort;
+    @Lob
+    private String content;
     private double price;
     private String duration;
     private String date;   // Fecha de inicio del curso
@@ -39,15 +42,17 @@ public class Course implements Serializable {
     public Course() {
     }
 
-    public Course(String name, Category category, Organization organization, String description, double price, String duration, String date, String location) {
+    public Course(String name, Category category, Organization organization, String description, double price, String duration, String date, String location,String descriptionShort, String content) {
         this.name = name;
         this.category = category;
         this.organization = organization;
         this.description = description;
+        this.descriptionShort = descriptionShort;
         this.price = price;
         this.duration = duration;
         this.date = date;
         this.location = location;
+        this.content = content;
     }
 
 
@@ -56,9 +61,9 @@ public class Course implements Serializable {
         return couse_ID;
     }
 
-//    public void setCouse_ID(long couse_ID) {
-//        this.couse_ID = couse_ID;
-//    }
+    public void setCouse_ID(long couse_ID) {
+        this.couse_ID = couse_ID;
+    }
     public String getName() {
         return name;
     }
@@ -123,5 +128,26 @@ public class Course implements Serializable {
         this.organization = organization;
     }
 
+    public String getDescriptionShort() {
+        return descriptionShort;
+    }
+
+    public void setDescriptionShort(String descriptionShort) {
+        this.descriptionShort = descriptionShort;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+
+
+    
+    
+    
     
 }

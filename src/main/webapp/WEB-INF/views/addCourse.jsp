@@ -47,73 +47,87 @@
                                     </c:forEach>
                                 </select>
                                 <a href="${pageContext.request.contextPath}/category/addCategory">Agregar Categoria</a>
-                        </div>
+                            </div>
 
-                        <%--                            <div class="form-group">
-                                                        <label for="idOrg">Organizacion: </label><br/>
-                                                        <select name="idOrg" id="idOrg" class="form-control">
-                                                                <option value="${org.organization_ID}">${org.getName()}</option>
-                                                        </select>
-                                                    </div>--%>
+                            <%--                            <div class="form-group">
+                                                            <label for="idOrg">Organizacion: </label><br/>
+                                                            <select name="idOrg" id="idOrg" class="form-control">
+                                                                    <option value="${org.organization_ID}">${org.getName()}</option>
+                                                            </select>
+                                                        </div>--%>
 
-                        <input type="hidden" name="idOrg" value="${session_user_provider.id}"/>
-
-                        <div class="form-group">
-                            <label for="description">Description: </label><br/>
-                            <textarea name="description" class="form-control" rows="5" id="description" placeholder="Agregue una descripcion del curso" required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="location">Lugar: </label><br/>
-                            <input id="pac-input" class="form-control" type="text" name="location" placeholder="Ingrese la ubicacion" required="">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="price">Precio: </label><br/>
-                            <input type="text" name="price" id="price" value="0.0" class="form-control" required/>
-                        </div> 
-
-                        <div class="form-group">
-                            <label for="duration">Duracion: </label><br/>
-                            <input type="text" name="duration" id="duration" value="" class="form-control" placeholder="3 meses" required/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date">Fecha de inicio: </label><br/>
-                            <input type="date" name="date" id="date" class="form-control" required />
-                        </div>
+                            <input type="hidden" name="idOrg" value="${session_user_provider.id}"/>
 
 
-
-                        <div class="form-group" style="text-align: center">
-                            <a href="${pageContext.request.contextPath}/centroEducativo/" class="btn btn-danger" role="button">Cancelar</a> 
-                            <input type="submit" id="bEnviar" class="btn btn-success " value="Guardar"/>
-                        </div>
-                    </f:form>
+                            <div class="form-group">
+                                <label for="descriptionShort">Resumen: </label><br/>
+                                <textarea name="descriptionShort" class="form-control" rows="2" id="descriptionShort" maxlength="255" placeholder="Resumen del curso. Max 255 caracteres" required></textarea>
+                            </div>
 
 
+                            <div class="form-group">
+                                <label for="description">Description: </label><br/>
+                                <textarea name="description" class="form-control" rows="5" id="description" placeholder="Agregue una descripcion del curso" required></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="content">Contenidos principales: </label><br/>
+                                <textarea name="content" class="form-control" rows="5" id="content" placeholder="Temario del curso" required></textarea>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="location">Lugar: </label><br/>
+                                <input id="pac-input" class="form-control" type="text" name="location" placeholder="Ingrese la ubicacion" required="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Precio: </label><br/>
+                                <input type="text" name="price" id="price" value="0.0" class="form-control" required/>
+                            </div> 
+
+                            <div class="form-group">
+                                <label for="duration">Duracion: </label><br/>
+                                <input type="text" name="duration" id="duration" value="" class="form-control" placeholder="3 meses" required/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date">Fecha de inicio: </label><br/>
+                                <input type="date" name="date" id="date" class="form-control" required />
+                            </div>
+
+
+
+                            <div class="form-group" style="text-align: center">
+                                <a href="${pageContext.request.contextPath}/centroEducativo/" class="btn btn-danger" role="button">Cancelar</a> 
+                                <input type="submit" id="bEnviar" class="btn btn-success " value="Guardar"/>
+                            </div>
+                        </f:form>
+
+
+
+                    </div>
 
                 </div>
 
+                <div class="col-md-2"></div>
+
             </div>
 
-            <div class="col-md-2"></div>
+            <footer class="footer">
+                <%@include file="/resources/maquetacion/footer.jsp" %>
+            </footer>
 
         </div>
 
-        <footer class="footer">
-            <%@include file="/resources/maquetacion/footer.jsp" %>
-        </footer>
-
-    </div>
 
 
 
+        <script>
+            var input = (document.getElementById('pac-input'));
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        </script>
 
-    <script>
-        var input = (document.getElementById('pac-input'));
-        var autocomplete = new google.maps.places.Autocomplete(input);
-    </script>
-
-</body>
+    </body>
 </html>

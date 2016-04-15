@@ -58,6 +58,8 @@ public class CourseController {
 
         course.setOrganization(organizationService.get(idOrg));
         course.setCategory(categoryService.get(idCat));
+        
+        System.out.println(course.getDescriptionShort()+"9999999999999999999999999999");
 
         courseService.add(course);
 

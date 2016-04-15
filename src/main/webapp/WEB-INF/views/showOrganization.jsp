@@ -54,7 +54,7 @@
                                 <td><a href="${pageContext.request.contextPath}/course/describeCourse?id=${p.getCouse_ID()}">${p.getName()}</a></td>
                                 <td>${p.getCategory().getName()}</td>
                                 <td>${p.getOrganization().getName()}</td>
-                                <td>${p.getDescription()}</td>
+                                <td>${p.getDescriptionShort()}</td>
                                 <td>$ ${p.getPrice()}</td>
                                 <td>${p.getDuration()}</td>
                                 <td>${p.getDate()}</td>

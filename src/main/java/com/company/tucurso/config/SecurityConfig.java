@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                    // .usernameParameter("username").passwordParameter("password")
                     .defaultSuccessUrl("/admin")
                 .and().logout().permitAll()
-                .and().csrf();
+                .and().csrf().disable();
     }
 
 //    @Override

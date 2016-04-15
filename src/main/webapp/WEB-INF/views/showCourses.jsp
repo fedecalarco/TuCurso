@@ -80,7 +80,7 @@
                                         <div class="col-md-10">
                                             <h2 id="curso-tiulo">${p.getName()}</h2>
                                             <h4>${p.getOrganization().getName()}</h4>
-                                            <p>${p.getDescription()}</p> 
+                                            <p>${p.getDescriptionShort()}</p> 
                                         </div>
                                         <div class="col-md-2" id="curso-panelderecha">
                                             <h5>Precio: $${p.getPrice()}</h5>

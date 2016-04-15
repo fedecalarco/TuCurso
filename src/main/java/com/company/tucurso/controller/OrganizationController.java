@@ -73,9 +73,13 @@ public class OrganizationController {
     }
 
     @RequestMapping(value = "/updateOrganization", method = GET)
-    public String UpdateOrganization() {
+    public String UpdateOrganization(Model m,HttpServletRequest request) {
         
-
+        
+        Provider p = (Provider) request.getSession().getAttribute("session_user_provider");
+        m.addAttribute("provider",providerService.get(p.getOrganizationProfile().getOrganization_ID()));
+        
+        
         return "update-profile-organization";
     }
 
@@ -97,7 +101,7 @@ public class OrganizationController {
         
 
         organizationService.update(org);
-        return "provider_Menu";
+        return "redirect:/centroEducativo/";
     }
 
     @RequestMapping(value = "imageDisplay", method = GET)

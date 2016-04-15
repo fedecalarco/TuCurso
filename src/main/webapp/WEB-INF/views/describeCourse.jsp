@@ -68,13 +68,13 @@
 
 
                     <div class="row" style="background-color: white; margin-bottom: 20px; padding: 0px ">
-                        <div class="col-md-2" style="padding: 0px;margin: 0px;text-align: center">
-                            <image src="https://cdn2.iconfinder.com/data/icons/metro-ui-icon-set/512/Java.png" class="img-responsive"  height="200" width="200" />
+                        <div class="col-md-2" style="padding: 0px;margin-top: 20px;text-align: center">
+                            <image src="${pageContext.request.contextPath}/organization/imageDisplay?id=${course.getOrganization().getOrganization_ID()}" class="img-responsive"  height="200" width="200" />
                         </div>
                         <div class="col-md-8">
                             <h2><b>${course.getName()}</b></h2>
                             <a href="${pageContext.request.contextPath}/organization/showOrganization?id=${course.getOrganization().getOrganization_ID()}"><h4>${course.getOrganization().getName()}</h4></a>
-                            <p>Aprende a utilizar uno de los frameworks de Java más demandados del mercado. Domina la tecnología Spring Java Framework orientada a aspectos con MVC y comienza a desarrollar aplicaciones corporativas de forma escalable, robusta y segura. </p>
+                            <p> ${course.getDescriptionShort()} </p>
                         </div>
                         <div class="col-md-2" style="padding: 10px">
                             <br/><br/>
@@ -103,44 +103,9 @@
                                                 <p>${course.getDescription()}</p>
                                             </div>
                                             <div id="contenido" class="tab-pane fade">
-                                                <p>  <b>Introduccion a Spring</b><br/><br/>
-                                                    · Que es Spring framework<br/>
-                                                    · Definición<br/>
-                                                    · Módulos que lo componen<br/>
-                                                    · Armando de entorno de desarrollo<br/>
-                                                    · Que es inyección de dependencias<br/>
-                                                    · Como usar el modulo Spring core<br/>
-                                                    · implementar inyección de dependencias<br/> usando Spring framework
-                                                    · Configuraciones mediante archivos xml<br/>
-                                                    · Configuraciones mediante anotaciones<br/>
-                                                    <b>Aspect Oriented Programming</b><br/>
-                                                    · Que es AOP (programación orientada a aspectos)<br/>
-                                                    · Aspect<br/>
-                                                    · PointCut<br/>
-                                                    · Advice<br/>
-                                                    · Como implementar AOP con Spring Framework<br/>
-                                                    · Configuraciones mediante archivos xml<br/>
-                                                    · Configuraciones mediante anotaciones<br/>
-                                                    · Que es Spring ORM<br/>
-                                                    · Que es Hibernate<br/>
-                                                    · La importancia de Hibernate<br/>
-                                                    · Como se integra Hibernate con Spring Framework<br/>
-                                                    <b>Spring MVC</b><br/>
-                                                    · Como usar el modulo Spring MVC<br/>
-                                                    · Modelo<br/>
-                                                    · Vista<br/>
-                                                    · Controladores<br/>
-                                                    · Validadores<br/>
-                                                    · Como usar Spring en un contexto Web<br/>
-                                                    · Como integrar Spring MVC con los módulos de persistencia y AOP<br/>
-                                                    Seguridad en Spring<br/>
-                                                    · Que es Spring security<br/>
-                                                    · Conceptos Básicos<br/>
-                                                    · Como configurar mi aplicación web para aprovechar las ventajas del modulo de seguridad<br/>
-                                                    · configuración de roles y usuarios a través xml<br/>
-                                                    · configuración de roles y usuarios a través de base de datos<br/>
-                                                    · Integración de Spring security con el modulo ORM<br/>
-                                                    · Como usar usuarios y roles dentro de mis vistas web</p>
+                                                <p>  
+                                                ${course.getContent()}
+                                                </p>
                                             </div>
 
                                         </div>
